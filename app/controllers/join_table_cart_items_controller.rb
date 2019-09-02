@@ -15,6 +15,8 @@ class JoinTableCartItemsController < ApplicationController
     jt_cart_item = JoinTableCartItem.new(cart: current_user.cart, item: Item.find(params[:item_id]))
     if jt_cart_item.save
       flash[:success] = "Item added to the cart"
+    else
+      flash[:error] = "Item has not been added to the cart"
     end
     redirect_to item_path(params[:item_id])
   end

@@ -16,11 +16,10 @@ class OrdersController < ApplicationController
         fill_order
         empty_cart
         flash[:success] = "Order created"
-        puts "Order created"
       else
-        flash[:danger] = "Order failed to be created"
-        puts "Order failed to be created"
+        flash[:error] = "Order failed to be created"
       end
+      redirect_to root_path
     end
   end
 
