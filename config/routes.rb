@@ -6,8 +6,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :items do
-
-  resources :join_table_cart_items
+    resources :join_table_cart_items
   end
   resources :carts
   resources :orders
