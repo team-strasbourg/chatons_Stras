@@ -14,4 +14,12 @@
  *= require_self
 
 
+*= require assets/styles/bootstrap-4.1.2/bootstrap.min
+*= require assets/plugins/font-awesome-4.7.0/css/font-awesome.min
+*= require assets/plugins/OwlCarousel2-2.2.1/owl.carousel
+*= require assets/plugins/OwlCarousel2-2.2.1/owl.theme.default
+*= require assets/plugins/OwlCarousel2-2.2.1/animate
+*= require assets/styles/main_styles
+*= require assets/styles/responsive
+
  */
