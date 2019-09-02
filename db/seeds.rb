@@ -8,7 +8,22 @@
 require 'faker'
 
 Item.destroy_all
+User.destroy_all
+Cart.destroy_all
+JoinTableCartItem.destroy_all
 
 20.times do
 	Item.create(title:Faker::Quote.robin, description:Faker::Quote.matz, price:Faker::Number.decimal(l_digits: 2), image_url:"item_cat.jpg")
+end
+
+5.times do
+  User.create(email: Faker::Internet.email, password: Faker::Internet.password)
+end
+
+User.all.each do |user|
+  Cart.create(user: user)
+end
+
+Cart.each do |cart|
+	JoinTableCartItem.create(cart: cart, item: Item.all.sample)
 end
