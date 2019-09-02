@@ -21,7 +21,7 @@
 											<div class="home_items">
 												<div class="row">
 													<div class="col-sm-3 offset-lg-1">
-														<div class="home_item_side"><a href="product.html"><%= image_tag("home_1.jpg", :alt => "search") %></a></div>
+														<div class="home_item_side"><a href="product.html"><%= image_tag("item_cat.jpg", :alt => "search") %></a></div>
 													</div>
 													<div class="col-lg-4 col-md-6 col-sm-8 offset-sm-2 offset-md-0">
 														<div class="product home_item_large">
@@ -31,7 +31,7 @@
 																	<div>$3<span>.99</span></div>
 																</div>
 															</div>
-															<div class="product_image"><%= image_tag("home_2.jpg", :alt => "search") %></div>
+															<div class="product_image"><%= image_tag("chaton_1.jpg", :alt => "search") %></div>
 															<div class="product_content">
 																<div class="product_info d-flex flex-row align-items-start justify-content-start">
 																	<div>
@@ -59,7 +59,7 @@
 														</div>
 													</div>
 													<div class="col-sm-3">
-														<div class="home_item_side"><a href="product.html"><%= image_tag("home_3.jpg", :alt => "search") %></a></div>
+														<div class="home_item_side"><a href="product.html"><%= image_tag("chaton_2.jpg", :alt => "search") %></a></div>
 													</div>
 												</div>
 											</div>
@@ -72,7 +72,7 @@
 
 					<!-- Slide -->
 					<div class="owl-item">
-						<div class="background_image" style="background-image:url(assets/home.jpg)"></div>
+						<div class="background_image" style="background-image:url(assets/chaton.jpg)"></div>
 						<div class="container fill_height">
 							<div class="row fill_height">
 								<div class="col fill_height">
@@ -83,7 +83,7 @@
 											<div class="home_items">
 												<div class="row">
 													<div class="col-sm-3 offset-lg-1">
-														<div class="home_item_side"><a href="product.html"><img src="assets/home_1.jpg" alt=""></a></div>
+														<div class="home_item_side"><a href="product.html"><%= image_tag("chaton_2.jpg", :alt => "search") %></a></div>
 													</div>
 													<div class="col-lg-4 col-md-6 col-sm-8 offset-sm-2 offset-md-0">
 														<div class="product home_item_large">
@@ -93,7 +93,7 @@
 																	<div>$3<span>.99</span></div>
 																</div>
 															</div>
-															<div class="product_image"><img src="assets/product_1.jpg" alt=""></div>
+															<div class="product_image"><%= image_tag("chaton_1.jpg", :alt => "kitty") %></div>
 															<div class="product_content">
 																<div class="product_info d-flex flex-row align-items-start justify-content-start">
 																	<div>
@@ -121,7 +121,7 @@
 														</div>
 													</div>
 													<div class="col-sm-3">
-														<div class="home_item_side"><a href="product.html"><img src="assets/home_3.jpg" alt=""></a></div>
+														<div class="home_item_side"><a href="product.html"><%= image_tag("chaton_2.jpg", :alt => "search") %></a></div>
 													</div>
 												</div>
 											</div>
@@ -134,7 +134,7 @@
 
 					<!-- Slide -->
 					<div class="owl-item">
-						<div class="background_image" style="background-image:url(assets/home.jpg)"></div>
+						<div class="background_image" style="background-image: url(assets/chaton.jpg)"></div>
 						<div class="container fill_height">
 							<div class="row fill_height">
 								<div class="col fill_height">
@@ -145,7 +145,7 @@
 											<div class="home_items">
 												<div class="row">
 													<div class="col-sm-3 offset-lg-1">
-														<div class="home_item_side"><a href="product.html"><img src="assets/home_1.jpg" alt=""></a></div>
+														<div class="home_item_side"><a href="product.html"><%= image_tag("item_cat.jpg", :alt => "kitty") %></a></div>
 													</div>
 													<div class="col-lg-4 col-md-6 col-sm-8 offset-sm-2 offset-md-0">
 														<div class="product home_item_large">
@@ -155,7 +155,7 @@
 																	<div>$3<span>.99</span></div>
 																</div>
 															</div>
-															<div class="product_image"><img src="images/product_2.jpg" alt=""></div>
+															<div class="product_image"><%= image_tag("chaton_1.jpg", :alt => "kitty") %></div>
 															<div class="product_content">
 																<div class="product_info d-flex flex-row align-items-start justify-content-start">
 																	<div>
@@ -183,7 +183,7 @@
 														</div>
 													</div>
 													<div class="col-sm-3">
-														<div class="home_item_side"><a href="product.html"><img src="assets/home_3.jpg" alt=""></a></div>
+														<div class="home_item_side"><a href="product.html"><%= image_tag("chaton_2.jpg", :alt => "search") %></a></div>
 													</div>
 												</div>
 											</div>
@@ -196,7 +196,7 @@
 
 					<!-- Slide -->
 					<div class="owl-item">
-						<div class="background_image" style="background-image:url(assets/home.jpg)"></div>
+						<div class="background_image" style="background-image:url(assets/kitty.jpg)"></div>
 						<div class="container fill_height">
 							<div class="row fill_height">
 								<div class="col fill_height">
@@ -289,7 +289,7 @@
 				<div class="row">
 
 					<div class="col-lg-6 offset-lg-3">
-						<div class="section_title text-center">Popular on Little Closet</div>
+						<div class="section_title text-center">Popular on Little Kitten</div>
 					</div>
 				</div>
 
@@ -309,10 +309,11 @@
 				<div class="row products_row">
 					
 					<!-- Product -->
+
 					<% @items.each do |item| %>
 					<div class="col-xl-4 col-md-6">
 						<div class="product">
-							<div class="product_image"><img src="assets/product_1.jpg" alt=""></div>
+							<div class="product_image"><%= image_tag(item.image_url, :alt => "kitty") %></div>
 							<div class="product_content">
 								<div class="product_info d-flex flex-row align-items-start justify-content-start">
 									<div>
@@ -323,7 +324,7 @@
 									</div>
 									<div class="ml-auto text-right">
 										<div class="rating_r rating_r_4 home_item_rating"><i></i><i></i><i></i><i></i><i></i></div>
-										<div class="product_price text-right">$<span>item.price</span></div>
+										<div class="product_price text-right">€ <span> <%= item.price %></span></div>
 									</div>
 								</div>
 								<div class="product_buttons">
@@ -340,160 +341,7 @@
 						</div>
 					</div>
 					<% end %>
-					<!-- Product -->
-					<div class="col-xl-4 col-md-6">
-						<div class="product">
-							<div class="product_image"><img src="assets/product_2.jpg" alt=""></div>
-							<div class="product_content">
-								<div class="product_info d-flex flex-row align-items-start justify-content-start">
-									<div>
-										<div>
-											<div class="product_name"><a href="product.html">Cool Clothing with Brown Stripes</a></div>
-											<div class="product_category">In <a href="category.html">Category</a></div>
-										</div>
-									</div>
-									<div class="ml-auto text-right">
-										<div class="rating_r rating_r_4 home_item_rating"><i></i><i></i><i></i><i></i><i></i></div>
-										<div class="product_price text-right">$3<span>.99</span></div>
-									</div>
-								</div>
-								<div class="product_buttons">
-									<div class="text-right d-flex flex-row align-items-start justify-content-start">
-										<div class="product_button product_fav text-center d-flex flex-column align-items-center justify-content-center">
-											<div><div><img src="assets/heart_2.svg" class="svg" alt=""><div>+</div></div></div>
-										</div>
-										<div class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
-											<div><div><img src="assets/cart.svg" class="svg" alt=""><div>+</div></div></div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<!-- Product -->
-					<div class="col-xl-4 col-md-6">
-						<div class="product">
-							<div class="product_image"><img src="assets/product_3.jpg" alt=""></div>
-							<div class="product_content">
-								<div class="product_info d-flex flex-row align-items-start justify-content-start">
-									<div>
-										<div>
-											<div class="product_name"><a href="product.html">Cool Clothing with Brown Stripes</a></div>
-											<div class="product_category">In <a href="category.html">Category</a></div>
-										</div>
-									</div>
-									<div class="ml-auto text-right">
-										<div class="rating_r rating_r_4 home_item_rating"><i></i><i></i><i></i><i></i><i></i></div>
-										<div class="product_price text-right">$3<span>.99</span></div>
-									</div>
-								</div>
-								<div class="product_buttons">
-									<div class="text-right d-flex flex-row align-items-start justify-content-start">
-										<div class="product_button product_fav text-center d-flex flex-column align-items-center justify-content-center">
-											<div><div><img src="assets/heart_2.svg" class="svg" alt=""><div>+</div></div></div>
-										</div>
-										<div class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
-											<div><div><img src="assets/cart.svg" class="svg" alt=""><div>+</div></div></div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<!-- Product -->
-					<div class="col-xl-4 col-md-6">
-						<div class="product">
-							<div class="product_image"><img src="assets/product_4.jpg" alt=""></div>
-							<div class="product_content">
-								<div class="product_info d-flex flex-row align-items-start justify-content-start">
-									<div>
-										<div>
-											<div class="product_name"><a href="product.html">Cool Clothing with Brown Stripes</a></div>
-											<div class="product_category">In <a href="category.html">Category</a></div>
-										</div>
-									</div>
-									<div class="ml-auto text-right">
-										<div class="rating_r rating_r_4 home_item_rating"><i></i><i></i><i></i><i></i><i></i></div>
-										<div class="product_price text-right">$3<span>.99</span></div>
-									</div>
-								</div>
-								<div class="product_buttons">
-									<div class="text-right d-flex flex-row align-items-start justify-content-start">
-										<div class="product_button product_fav text-center d-flex flex-column align-items-center justify-content-center">
-											<div><div><img src="assets/heart_2.svg" class="svg" alt=""><div>+</div></div></div>
-										</div>
-										<div class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
-											<div><div><img src="assets/cart.svg" class="svg" alt=""><div>+</div></div></div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<!-- Product -->
-					<div class="col-xl-4 col-md-6">
-						<div class="product">
-							<div class="product_image"><img src="assets/product_5.jpg" alt=""></div>
-							<div class="product_content">
-								<div class="product_info d-flex flex-row align-items-start justify-content-start">
-									<div>
-										<div>
-											<div class="product_name"><a href="product.html">Cool Clothing with Brown Stripes</a></div>
-											<div class="product_category">In <a href="category.html">Category</a></div>
-										</div>
-									</div>
-									<div class="ml-auto text-right">
-										<div class="rating_r rating_r_4 home_item_rating"><i></i><i></i><i></i><i></i><i></i></div>
-										<div class="product_price text-right">$3<span>.99</span></div>
-									</div>
-								</div>
-								<div class="product_buttons">
-									<div class="text-right d-flex flex-row align-items-start justify-content-start">
-										<div class="product_button product_fav text-center d-flex flex-column align-items-center justify-content-center">
-											<div><div><img src="assets/heart_2.svg" class="svg" alt=""><div>+</div></div></div>
-										</div>
-										<div class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
-											<div><div><img src="assets/cart.svg" class="svg" alt=""><div>+</div></div></div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<!-- Product -->
-					<div class="col-xl-4 col-md-6">
-						<div class="product">
-							<div class="product_image"><img src="assets/product_6.jpg" alt=""></div>
-							<div class="product_content">
-								<div class="product_info d-flex flex-row align-items-start justify-content-start">
-									<div>
-										<div>
-											<div class="product_name"><a href="product.html">Cool Clothing with Brown Stripes</a></div>
-											<div class="product_category">In <a href="category.html">Category</a></div>
-										</div>
-									</div>
-									<div class="ml-auto text-right">
-										<div class="rating_r rating_r_4 home_item_rating"><i></i><i></i><i></i><i></i><i></i></div>
-										<div class="product_price text-right">$3<span>.99</span></div>
-									</div>
-								</div>
-								<div class="product_buttons">
-									<div class="text-right d-flex flex-row align-items-start justify-content-start">
-										<div class="product_button product_fav text-center d-flex flex-column align-items-center justify-content-center">
-											<div><div><img src="assets/heart_2.svg" class="svg" alt=""><div>+</div></div></div>
-										</div>
-										<div class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
-											<div><div><img src="assets/cart.svg" class="svg" alt=""><div>+</div></div></div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+					
 
 				</div>
 				<div class="row load_more_row">
