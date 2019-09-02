@@ -1,4 +1,7 @@
 class CartsController < ApplicationController
+
+  before_action :authenticate_user! 
+
   def index
 
   end
@@ -26,5 +29,5 @@ class CartsController < ApplicationController
   def destroy
 
   end
-  
+
 end
