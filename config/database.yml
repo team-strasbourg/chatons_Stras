@@ -83,3 +83,9 @@ production:
   database: chatons_stras_production
   username: chatons_stras
   password: <%= ENV['CHATONS_STRAS_DATABASE_PASSWORD'] %>
+
+staging:
+  <<: *default
+  database: chatons_stras_staging
+  username: chatons_stras
+  password: <%= ENV['CHATONS_STRAS_DATABASE_PASSWORD'] %>
