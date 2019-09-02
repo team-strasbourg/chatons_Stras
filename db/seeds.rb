@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
+require 'pry'
 
 Item.destroy_all
 User.destroy_all
@@ -15,15 +16,20 @@ JoinTableCartItem.destroy_all
 20.times do
 	Item.create(title:Faker::Quote.robin, description:Faker::Quote.matz, price:Faker::Number.decimal(l_digits: 2), image_url:"item_cat.jpg")
 end
-
+puts "Items created"
 5.times do
   User.create(email: Faker::Internet.email, password: Faker::Internet.password)
 end
+puts "Users created"
 
 User.all.each do |user|
   Cart.create(user: user)
 end
+puts "Carts created"
 
-Cart.each do |cart|
-	JoinTableCartItem.create(cart: cart, item: Item.all.sample)
+Cart.all.each do |cart|
+  rand(1..5).times do
+		JoinTableCartItem.create(cart: cart, item: Item.all.sample)
+  end
 end
+puts 'Carts filled with items'
