@@ -10,5 +10,8 @@ class Item < ApplicationRecord
 	validates :description,
 						presence: true,
 						length: { minimum: 30}
+	validates :price,
+						presence: true,
+						in: 1.00..1000..00
 
 end
