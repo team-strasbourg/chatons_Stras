@@ -10,15 +10,17 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new(user: current_user)
-    if @order.save
-      fill_order
-      empty_cart
-      flash[:success] = "Order created"
-      puts "Order created"
-    else
-      flash[:danger] = "Order failed to be created"
-      puts "Order failed to be created"
+    unless current_user.cart.items.empty?
+      @order = Order.new(user: current_user)
+      if @order.save
+        fill_order
+        empty_cart
+        flash[:success] = "Order created"
+        puts "Order created"
+      else
+        flash[:danger] = "Order failed to be created"
+        puts "Order failed to be created"
+      end
     end
   end
 
