@@ -1,5 +1,5 @@
 <%if user_signed_in? %>
-  <%=form_with(url: item_join_table_cart_items_path(@item.id), method: :post) do %>
-    <%= submit_tag("Add to cart", class: "btn btn-primary") %>
+  <%=form_with(url: orders_path, method: :post) do %>
+    <%= submit_tag("Confirm order", class: "btn btn-primary") %>
   <%end %>
 <%end %>

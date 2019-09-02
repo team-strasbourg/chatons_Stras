@@ -16,6 +16,9 @@ class OrdersController < ApplicationController
       empty_cart
       flash[:success] = "Order created"
       puts "Order created"
+    else
+      flash[:danger] = "Order failed to be created"
+      puts "Order failed to be created"
     end
   end
 
@@ -37,6 +40,6 @@ class OrdersController < ApplicationController
   end
 
   def empty_cart
-
+    JoinTableCartItem.where(cart: current_user.cart).destroy_all
   end
 end
