@@ -21,8 +21,6 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    puts '#' * 60
-    puts params
     if @user.update(user_params)
       redirect_to user_path(@user.id)
     else
@@ -36,7 +34,7 @@ class UsersController < ApplicationController
   private 
 
   def user_params
-    params[:user].permit(:name, :last_name, :description)
+    params[:user].permit(:first_name, :last_name, :description)
   end
 
 end

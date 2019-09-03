@@ -18,7 +18,7 @@ JoinTableCartItem.destroy_all
 end
 puts "Items created"
 5.times do
-  User.create(email: Faker::Internet.email, password: Faker::Internet.password, name: Faker::Name.first_name, last_name: Faker::Name.last_name, description: Faker::Quote.most_interesting_man_in_the_world)
+  User.create(email: Faker::Internet.email, password: Faker::Internet.password, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, description: Faker::Quote.most_interesting_man_in_the_world)
 end
 puts "Users created"
 
