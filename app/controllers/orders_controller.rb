@@ -5,6 +5,7 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+
   end
 
   def new
@@ -37,6 +38,10 @@ class OrdersController < ApplicationController
   end
 
   def destroy
+    @order = Order.find(params[:id])
+    @order.destroy
+    flash[:success] = "Your order has been deleted!"
+    redirect_to root_path
   end
 
   private
