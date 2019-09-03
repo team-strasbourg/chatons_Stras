@@ -8,7 +8,7 @@ class CartsController < ApplicationController
 
   def show
     @items = current_user.cart.items 
-
+    total_price
   end
 
   def new
@@ -28,6 +28,14 @@ class CartsController < ApplicationController
   end
 
   def destroy
+
+  end
+
+  private
+
+  def total_price
+    # Calculate total price of items in cart
+    current_user.cart.items.sum(:price)
 
   end
 
