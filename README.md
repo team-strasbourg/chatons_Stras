@@ -22,3 +22,8 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+Creer des fichiers vides :
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap-4.1.2/popper.js.map"):
+ActionController::RoutingError (No route matches [GET] "/assets/progressbar/progressbar.min.js.map"):
