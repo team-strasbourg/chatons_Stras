@@ -1,4 +1,3 @@
-
 <div class="menu">
 
   <!-- Search -->
@@ -37,7 +36,7 @@
 <header class="header">
   <div class="header_overlay"></div>
   <div class="header_content d-flex flex-row align-items-center justify-content-start">
-    <%= link_to root_path, :action => 'go' do %>
+    <%= link_to items_path,  :action => 'go' do %>
     <div class="logo">
       <a href="">
         <div class="d-flex flex-row align-items-center justify-content-start">
@@ -68,10 +67,10 @@
        <!-- </div>  -->
       <!-- User -->
       <%if user_signed_in? %>
-        <div class="user"><a href="<%=user_path(current_user) %>"><div><%= image_tag("user.svg", alt: "https://www.flaticon.com/authors/freepik") %><div>1</div></div></a></div>
+        <div class="user"><a href="<%=user_path(current_user) %>"><div><%= image_tag("user.svg", alt: "https://www.flaticon.com/authors/freepik") %><div></div></div></a></div>
         <div class="cart"><a href="cart.html"><div><%= image_tag("cart.svg", :alt => "https://www.flaticon.com/authors/freepik") %> </div></a></div>
       <%else%>
-        <div class="user"><a href="<%=new_user_session_path %>"><div><%= image_tag("user.svg", alt: "https://www.flaticon.com/authors/freepik") %><div>1</div></div></a></div>
+        <div class="user"><a href="<%=new_user_session_path %>"><div></div></a></div>
       <%end %>
       <!-- Cart -->
       <!-- Phone -->
@@ -80,5 +79,5 @@
         <div>+1 912-252-7350</div>
       </div>
     </div>
-  </div>
-</header>
+  
+
