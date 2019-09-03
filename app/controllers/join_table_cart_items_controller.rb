@@ -17,7 +17,6 @@ class JoinTableCartItemsController < ApplicationController
       flash[:success] = "Item added to the cart"
     else
       flash[:error] = "Item has not been added to the cart"
-      puts jt_cart_item.errors.messages
     end
     redirect_to item_path(params[:item_id])
   end
