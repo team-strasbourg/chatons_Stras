@@ -37,10 +37,12 @@
 				<td class="hidden-xs">
 					<strong>Total: <%= @order.total_price %>€</strong>
 				</td>
-				<td>
-					<%= render partial: 'btn_paiement', locals:{order: @order} %>
-					<%= render 'btn_delete_order' %>
-				</td>
+        <%unless @order.is_already_paid %>
+          <td>
+            <%= render partial: 'btn_paiement', locals:{order: @order} %>
+            <%= render 'btn_delete_order' %>
+          </td>
+          <%end %>
 			</tr>
 		</tfoot>
 	</table>

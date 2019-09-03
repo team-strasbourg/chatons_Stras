@@ -19,6 +19,7 @@ class ChargesController < ApplicationController
                                        description: 'Rails Stripe customer',
                                        currency: 'usd',
                                    })
+    Order.find(params[:order_id]).update(paid: true)
    redirect_to user_path(current_user)
   rescue Stripe::CardError => e
     flash[:error] = e.message

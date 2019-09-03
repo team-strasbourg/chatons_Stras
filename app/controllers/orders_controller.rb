@@ -53,4 +53,5 @@ class OrdersController < ApplicationController
   def empty_cart
     JoinTableCartItem.where(cart: current_user.cart).destroy_all
   end
+
 end
