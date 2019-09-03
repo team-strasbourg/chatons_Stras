@@ -1,5 +1,5 @@
 <%if user_signed_in? %>
-  <%=link_to item_join_table_cart_items_path(@item.id), method: :post do %>
+  <%=link_to item_join_table_cart_items_path(item.id), method: :post do %>
     <%= image_tag("cart.svg", :alt => "Cart", style:"height:30%;width:30%;margin-top:43px") %>
   <%end %>
 <%else%>
