@@ -7,6 +7,7 @@ class CartsController < ApplicationController
   end
 
   def show
+    @items = current_user.cart.items 
 
   end
 
