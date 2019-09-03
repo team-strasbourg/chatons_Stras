@@ -14,7 +14,7 @@ Cart.destroy_all
 JoinTableCartItem.destroy_all
 
 20.times do
-	Item.create(title:Faker::Quote.robin, description:Faker::Quote.matz, price:Faker::Number.decimal(l_digits: 2), image_url:"high_cat.jpg")
+	Item.create(title:Faker::Quote.robin, description:Faker::Quote.matz, price:Faker::Number.decimal(l_digits: 2), image_url:"item_cat.jpg")
 end
 puts "Items created"
 5.times do
