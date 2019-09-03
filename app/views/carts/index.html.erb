@@ -7,7 +7,7 @@
 		</thead>
 		<tbody>
 			<tr>	
-					<% current_user.cart.items.each do |item| %>	
+					<% @items.each do |item| %>	
 				<td data-th="Your cart">
 					<div class="row">
 						<div class="col-md-2">
@@ -34,7 +34,7 @@
 					<a class="btn btn-warning" href="#">Continue shopping</a>
 				</td>
 				<td class="hidden-xs">
-					<strong>Total ...</strong>
+					<strong>Total: <%= @total_price %>€</strong>
 				</td>
 				<td>
 					<a class="btn btn-success btn-block" href="#">Checkout</a>
