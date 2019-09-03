@@ -35,7 +35,7 @@
 					<%= link_to "Continue shopping", root_path, class: "btn btn-warning" %>
 				</td>
 				<td class="hidden-xs">
-					<strong>Total: <%= @total_price %>€</strong>
+					<strong>Total: <%= @order.total_price %>€</strong>
 				</td>
 				<td>
 					<%= render 'btn_paiement' %>
