@@ -60,11 +60,11 @@
       <!-- User -->
       <%if user_signed_in? %>
 
-        <div class="user"><a href="<%=user_path(current_user) %>"><div><%= image_tag("user.svg", alt: "https://www.flaticon.com/authors/freepik") %><div>1</div></div></a></div>
+        <div class="user"><a href="<%=user_path(current_user) %>"><div><%= image_tag("user.svg", alt: "https://www.flaticon.com/authors/freepik") %></div></a></div>
         <div class="cart"><a href="<%= cart_path(current_user.cart.id)%>"><div><%= image_tag("cart.svg", :alt => "https://www.flaticon.com/authors/freepik") %> </div></a></div>
 
       <%else%>
-        <div class="user"><a href="<%=new_user_session_path %>"><div></div></a></div>
+         <div class="user"><a href="<%=new_user_session_path %>"><div><%= image_tag("user.svg", alt: "https://www.flaticon.com/authors/freepik") %></div></a></div>
       <%end %>
       <!-- Cart -->
       <!-- Phone -->
