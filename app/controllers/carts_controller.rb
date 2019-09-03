@@ -31,12 +31,15 @@ class CartsController < ApplicationController
 
   end
 
+  def remove_item
+    JoinTableCartItem.find_by(cart: current_user.cart, item:Item.find(params[:id])).destroy
+  end
+
   private
 
   def total_price
     # Calculate total price of items in cart
     current_user.cart.items.sum(:price)
-
   end
 
 end
