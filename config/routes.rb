@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   
 
 
-  devise_for :users
+  devise_for :users, controllers: {
+      registrations: 'users/registrations'
+  }
 
   resources :users
   resources :items do
@@ -19,6 +21,7 @@ Rails.application.routes.draw do
   resources :orders
 
   resources :join_table_order_items
+
 
 
 
