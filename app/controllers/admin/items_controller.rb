@@ -21,6 +21,9 @@ module Admin
     end
 
     def destroy
+      Item.destroy(params[:id])
+      flash[:success] = "Item successfully deleted"
+      redirect_to admin_items_path
     end
   end
 end
