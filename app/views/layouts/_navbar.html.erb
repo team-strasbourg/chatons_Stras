@@ -29,17 +29,16 @@
 <header class="header">
   <div class="header_overlay"></div>
   <div class="header_content d-flex flex-row align-items-center justify-content-start">
-    <%= link_to items_path,  :action => 'go' do %>
-    <div class="logo">
-      <a href="">
-        <div class="d-flex flex-row align-items-center justify-content-start">
-          <div><%= image_tag("gitmiaou.png", :alt => "search") %></div>
-          <div>Little Kitten</div>
-        </div>
-      </a>
-    </div>
-<% end %>
 
+        <div class="d-flex flex-row align-items-center justify-content-start">
+          <div><%= link_to items_path do %>
+            <%= image_tag("gitmiaou.png", :alt => "Accueil")%>
+          <% end %>
+          </div>
+          <div>
+            <%= link_to "Little Kitten", items_path, :style => "color: #4a4a4a;font-weight:700;font-size:35px;padding-left:10px;" %>
+          </div>
+        </div>
     <div class="hamburger"><i class="fa fa-bars" aria-hidden="true"></i></div>
        <nav class="main_nav">
        <ul class="d-flex flex-row align-items-start justify-content-start">
@@ -60,8 +59,10 @@
        <!-- </div>  -->
       <!-- User -->
       <%if user_signed_in? %>
-        <div class="user"><a href="<%=user_path(current_user) %>"><div><%= image_tag("user.svg", alt: "https://www.flaticon.com/authors/freepik") %><div></div></div></a></div>
-        <div class="cart"><a href="cart.html"><div><%= image_tag("cart.svg", :alt => "https://www.flaticon.com/authors/freepik") %> </div></a></div>
+
+        <div class="user"><a href="<%=user_path(current_user) %>"><div><%= image_tag("user.svg", alt: "https://www.flaticon.com/authors/freepik") %><div>1</div></div></a></div>
+        <div class="cart"><a href="<%= cart_path(current_user.cart.id)%>"><div><%= image_tag("cart.svg", :alt => "https://www.flaticon.com/authors/freepik") %> </div></a></div>
+
       <%else%>
         <div class="user"><a href="<%=new_user_session_path %>"><div></div></a></div>
       <%end %>
@@ -72,5 +73,7 @@
         <div>+1 912-252-7350</div>
       </div>
     </div>
-  
+
+  </div>
+</header>
 
