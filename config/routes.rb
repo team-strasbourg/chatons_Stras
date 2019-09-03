@@ -9,9 +9,11 @@ Rails.application.routes.draw do
     resources :join_table_cart_items
   end
   resources :carts
-  resources :orders
+  resources :orders do
+    resources :charges
+  end
   resources :join_table_order_items
-  resources :charges
+
 
 
   root "items#index"
