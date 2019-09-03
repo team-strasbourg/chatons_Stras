@@ -24,7 +24,7 @@
 
  */
 
- body {
+  body {
    display: flex;
    flex-direction: column;
    justify-content: space-between;
@@ -33,9 +33,9 @@
 
  footer {
    margin-top: auto;
- } 
+ }  
  #section_footer {
-   flex-grow: 1;
- }
+   padding-top: 100px;
+ }  
 
 
