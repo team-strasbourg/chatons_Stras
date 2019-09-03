@@ -1,0 +1,5 @@
+<%if user_signed_in? %>
+  <%=form_with(url:new_order_charge_path, method: :get) do %>
+    <%= submit_tag("Pay your order", class: "btn btn-primary") %>
+  <%end %>
+<%end %>
