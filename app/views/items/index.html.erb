@@ -21,7 +21,7 @@
 									<div class="home_container d-flex flex-column align-items-center justify-content-start">
 										<div class="home_content">
 											<div class="home_title">New Arrivals</div>
-											<div class="home_subtitle">Summer Wear</div>
+											<div class="home_subtitle">Summer Vibes</div>
 											<div class="home_items">
 												<div class="row">
 													<div class="col-sm-3 offset-lg-1">
@@ -32,7 +32,7 @@
 															<div class="product_tag d-flex flex-column align-items-center justify-content-center">
 																<div>
 																	<div>from</div>
-																	<div>$3<span>.99</span></div>
+																	<div>10 €</div>
 																</div>
 															</div>
 															<div class="product_image"><%= image_tag("chaton_1.jpg", :alt => "search") %></div>
@@ -83,7 +83,7 @@
 									<div class="home_container d-flex flex-column align-items-center justify-content-start">
 										<div class="home_content">
 											<div class="home_title">Popular</div>
-											<div class="home_subtitle">Summer Wear</div>
+											<div class="home_subtitle">Summer Vibes</div>
 											<div class="home_items">
 												<div class="row">
 													<div class="col-sm-3 offset-lg-1">
@@ -94,7 +94,7 @@
 															<div class="product_tag d-flex flex-column align-items-center justify-content-center">
 																<div>
 																	<div>from</div>
-																	<div>$3<span>.99</span></div>
+																	<div>10 €</div>
 																</div>
 															</div>
 															<div class="product_image"><%= image_tag("chaton_1.jpg", :alt => "kitty") %></div>
@@ -144,8 +144,8 @@
 								<div class="col fill_height">
 									<div class="home_container d-flex flex-column align-items-center justify-content-start">
 										<div class="home_content">
-											<div class="home_title">Trendsetters</div>
-											<div class="home_subtitle">Summer Wear</div>
+											<div class="home_title">Cuteness Overlaod</div>
+											<div class="home_subtitle">Summer Vibes</div>
 											<div class="home_items">
 												<div class="row">
 													<div class="col-sm-3 offset-lg-1">
@@ -156,7 +156,7 @@
 															<div class="product_tag d-flex flex-column align-items-center justify-content-center">
 																<div>
 																	<div>from</div>
-																	<div>$3<span>.99</span></div>
+																	<div>10 €</div>
 																</div>
 															</div>
 															<div class="product_image"><%= image_tag("chaton_1.jpg", :alt => "kitty") %></div>
@@ -164,7 +164,7 @@
 																<div class="product_info d-flex flex-row align-items-start justify-content-start">
 																	<div>
 																		<div>
-																			<div class="product_name"><a href="product.html">Cool Clothing with Brown Stripes</a></div>
+																			<div class="product_name"><a href="product.html">Cool Kitten Brown Stripes</a></div>
 																			<div class="product_category">In <a href="category.html">Category</a></div>
 																		</div>
 																	</div>
@@ -207,7 +207,7 @@
 									<div class="home_container d-flex flex-column align-items-center justify-content-start">
 										<div class="home_content">
 											<div class="home_title">Premium Items</div>
-											<div class="home_subtitle">Summer Wear</div>
+											<div class="home_subtitle">Summer Vibes</div>
 											<div class="home_items">
 												<div class="row">
 													<div class="col-sm-3 offset-lg-1">
@@ -218,7 +218,7 @@
 															<div class="product_tag d-flex flex-column align-items-center justify-content-center">
 																<div>
 																	<div>from</div>
-																	<div>$3<span>.99</span></div>
+																	<div>10 €</div>
 																</div>
 															</div>
 															<div class="product_image"><img src="assets/product_3.jpg" alt=""></div>
@@ -297,19 +297,6 @@
 					</div>
 				</div>
 
-				<div class="row page_nav_row">
-
-					<div class="col">
-						<div class="page_nav">
-							<ul class="d-flex flex-row align-items-start justify-content-center">
-								<li class="active"><a href="category.html">Women</a></li>
-								<li><a href="category.html">Men</a></li>
-								<li><a href="category.html">Kids</a></li>
-								<li><a href="category.html">Home Deco</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
 				<div class="row products_row">
 					
 					<!-- Product -->
@@ -317,12 +304,13 @@
 					<% @items.each do |item| %>
 					<div class="col-xl-4 col-md-6">
 						<div class="product">
-							<div class="product_image"><%= image_tag(item.image_url, :alt => "kitty") %></div>
+							<div class="product_image"><%= link_to image_tag(item.image_url, :alt => "kitty"), item_path(item.id) %></div>
 							<div class="product_content">
 								<div class="product_info d-flex flex-row align-items-start justify-content-start">
 									<div>
 										<div>
-											<div class="product_name"><a href="product.html"><%= item.title %></a></div>
+											<div class="product_name"><a href="product.html"><%= link_to item.title, item_path(item.id) %></a></div>
+
 											<div class="product_category">In <a href="category.html">Category</a></div>
 										</div>
 									</div>
@@ -331,14 +319,15 @@
 										<div class="product_price text-right">€ <span> <%= item.price %></span></div>
 									</div>
 								</div>
+
 								<div class="product_buttons">
-									<div class="text-right d-flex flex-row align-items-start justify-content-start">
-										<div class="product_button product_fav text-center d-flex flex-column align-items-center justify-content-center">
-											<div><div><img src="assets/heart_2.svg" class="svg" alt=""><div>+</div></div></div>
-										</div>
-										<div class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
-											<div><div><img src="assets/cart.svg" class="svg" alt=""><div>+</div></div></div>
-										</div>
+									<div class="text-right d-flex flex-row align-items-center justify-content-start">
+
+											<div><%= link_to raw('<div class="product_button product_fav text-center d-flex flex-column align-items-center justify-content-center ">Details</div>'), item_path(item.id), class:'product_button product_fav text-center d-flex flex-column align-items-center justify-content-center', style:'height:100%' %></div>
+
+                    <div class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
+                      <%= render partial:'button_add_to_cart', locals:{item: item} %>
+                    </div>
 									</div>
 								</div>
 							</div>
@@ -356,70 +345,6 @@
 			</div>
 		</div>
 
-		<!-- Boxes -->
-
-		<div class="boxes">
-			<div class="container">
-				<div class="row">
-					<div class="col">
-						<div class="boxes_container d-flex flex-row align-items-start justify-content-between flex-wrap">
-
-							<!-- Box -->
-							<div class="box">
-								<div class="background_image" style="background-image:url(assets/box_1.jpg)"></div>
-								<div class="box_content d-flex flex-row align-items-center justify-content-start">
-									<div class="box_left">
-										<div class="box_image">
-											<a href="category.html">
-												<div class="background_image" style="background-image:url(assets/box_1_img.jpg)"></div>
-											</a>
-										</div>
-									</div>
-									<div class="box_right text-center">
-										<div class="box_title">Trendsetter Collection</div>
-									</div>
-								</div>
-							</div>
-
-							<!-- Box -->
-							<div class="box">
-								<div class="background_image" style="background-image:url(assets/box_2.jpg)"></div>
-								<div class="box_content d-flex flex-row align-items-center justify-content-start">
-									<div class="box_left">
-										<div class="box_image">
-											<a href="category.html">
-												<div class="background_image" style="background-image:url(assets/box_2_img.jpg)"></div>
-											</a>
-										</div>
-									</div>
-									<div class="box_right text-center">
-										<div class="box_title">Popular Choice</div>
-									</div>
-								</div>
-							</div>
-
-							<!-- Box -->
-							<div class="box">
-								<div class="background_image" style="background-image:url(assets/box_3.jpg)"></div>
-								<div class="box_content d-flex flex-row align-items-center justify-content-start">
-									<div class="box_left">
-										<div class="box_image">
-											<a href="category.html">
-												<div class="background_image" style="background-image:url(assets/box_3_img.jpg)"></div>
-											</a>
-										</div>
-									</div>
-									<div class="box_right text-center">
-										<div class="box_title">Popular Choice</div>
-									</div>
-								</div>
-							</div>
-
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
 
 		<!-- Features -->
 
