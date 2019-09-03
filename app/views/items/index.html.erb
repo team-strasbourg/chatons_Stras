@@ -21,7 +21,7 @@
 									<div class="home_container d-flex flex-column align-items-center justify-content-start">
 										<div class="home_content">
 											<div class="home_title">New Arrivals</div>
-											<div class="home_subtitle">Summer Wear</div>
+											<div class="home_subtitle">Summer Vibes</div>
 											<div class="home_items">
 												<div class="row">
 													<div class="col-sm-3 offset-lg-1">
@@ -304,12 +304,12 @@
 					<% @items.each do |item| %>
 					<div class="col-xl-4 col-md-6">
 						<div class="product">
-							<div class="product_image"><%= image_tag(item.image_url, :alt => "kitty") %></div>
+							<div class="product_image"><%= link_to image_tag(item.image_url, :alt => "kitty"), item_path(item.id) %></div>
 							<div class="product_content">
 								<div class="product_info d-flex flex-row align-items-start justify-content-start">
 									<div>
 										<div>
-											<div class="product_name"><a href="product.html"><%= item.title %></a></div>
+											<div class="product_name"><a href="product.html"><%= link_to item.title, item_path(item.id) %></a></div>
 
 											<div class="product_category">In <a href="category.html">Category</a></div>
 										</div>
@@ -322,7 +322,7 @@
 								<div class="product_buttons">
 									<div class="text-right d-flex flex-row align-items-start justify-content-start">
 										<div class="product_button product_fav text-center d-flex flex-column align-items-center justify-content-center">
-											<div><div><img src="assets/heart_2.svg" class="svg" alt=""><div>+</div></div></div>
+											<div><div><%= link_to "Details", item_path(item.id)%></div></div>
 										</div>
 										<div class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
 											<div><div><img src="assets/cart.svg" class="svg" alt=""><div>+</div></div></div>
