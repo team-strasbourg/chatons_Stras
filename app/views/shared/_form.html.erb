@@ -5,13 +5,18 @@
 
       <%= form_for(resource, url: path, method: method) do |f| %>
       <h2><%=title %></h2>
+
+<!--        IF DEVISE ERRORS-->
         <%begin%>
           <%if devise_error_messages!%>
             <%= devise_error_messages! %>
           <%end%>
         <%rescue%>
         <%end%>
+
         <%case action %>
+
+<!--      NEW SESSIONS FORM-->
         <%when 'new_session' %>
           <div class="form-group">
             <!--   <%= f.label :email %><br /> -->
@@ -29,7 +34,9 @@
               <%= f.label :remember_me %>
             </div>
           <% end %>
-        <%case 'new_registration' %>
+
+<!--          NEW REGISTRATION FORM-->
+        <%when 'new_registration' %>
           <div class="form-group">
             <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email" %>
           </div>
@@ -47,12 +54,15 @@
           </div>
         <%else %>
         <%end %>
+
+<!--        FOR ALL FORMS-->
         <div class="form-group">
           <%= f.submit button, class: "btn btn-primary btn-block" %>
         </div>
 
 
       <% end %>
+
       <%if ['edit_password',"new_password",'new_registration','new_session'].include?(action)%>
         <%= render "devise/shared/links" %>
       <%end%>
