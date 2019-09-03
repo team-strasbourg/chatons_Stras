@@ -4,7 +4,7 @@
   <div class="menu_nav">
     <ul>
       <li><%= link_to "Log-In", new_user_session_path %> / <%= link_to "Sign-Up", new_user_registration_path %> </li>
-      <li><%= link_to "All Products", items_path %></li> 
+      <li><%= link_to "All Products", items_path %></li>
       <li><a href="#">About</a></li>
       <li><a href="#">Contact</a></li>
     </ul>
@@ -60,11 +60,27 @@
       <!-- User -->
       <%if user_signed_in? %>
 
-        <div class="user"><a href="<%=user_path(current_user) %>"><div><%= image_tag("user.svg", alt: "https://www.flaticon.com/authors/freepik") %></div></a></div>
+      <div class="dropdown">
+        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top:20px">
+        <div class="user"><a href=""><div><%= image_tag("user.svg", alt: "https://www.flaticon.com/authors/freepik") %></div></a></div>
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" <%= link_to "Profile", user_path(current_user) %>
+        <a class="dropdown-item" <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+        </div>
+        </div>
         <div class="cart"><a href="<%= cart_path(current_user.cart.id)%>"><div><%= image_tag("cart.svg", :alt => "https://www.flaticon.com/authors/freepik") %> </div></a></div>
 
       <%else%>
-         <div class="user"><a href="<%=new_user_session_path %>"><div><%= image_tag("user.svg", alt: "https://www.flaticon.com/authors/freepik") %></div></a></div>
+      <div class="dropdown">
+        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top:20px">
+        <div class="user"><a href=""><div><%= image_tag("user.svg", alt: "https://www.flaticon.com/authors/freepik") %></div></a></div>
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" <%= link_to "Log in", new_user_session_path %>
+        <a class="dropdown-item" <%= link_to "Sign up", new_user_registration_path %>
+        </div>
+        </div>
       <%end %>
       <!-- Cart -->
       <!-- Phone -->
@@ -73,7 +89,4 @@
         <div>+1 912-252-7350</div>
       </div>
     </div>
-
-  </div>
 </header>
-
