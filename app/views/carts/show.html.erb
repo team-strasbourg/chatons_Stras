@@ -38,7 +38,8 @@
 					<strong>Total: <%= @total_price %>€</strong>
 				</td>
 				<td>
-					<a class="btn btn-success btn-block" href="#">Checkout</a>
+					<%= render 'layouts/transform_to_order' %>
+					<!-- <a class="btn btn-success btn-block" href="#">Checkout</a> -->
 				</td>
 			</tr>
 		</tfoot>
