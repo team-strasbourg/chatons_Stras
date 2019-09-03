@@ -6,6 +6,10 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
+    if user_signed_in?
+      @cart = current_user.cart
+    end
   end
 
   def new
