@@ -12,7 +12,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
    def create
      super
-     puts "#"*60
+
      Cart.create(user: current_user)
    end
 
