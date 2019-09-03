@@ -1,2 +1,75 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+  <h4 class="navbar-brand col-sm-3 col-md-2 mr-0">My profile section</h4>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+      <div class="sidebar-sticky">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" href="<%= user_path(current_user)">
+              <span data-feather="shopping-cart"></span>
+              My profile
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<%= ">
+              <span data-feather="file"></span>
+              My orders still to be paid
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span data-feather="file"></span>
+              My orders history
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="col-md-8"> 
+     
+      <main role="main" class="col-md-10 ml-sm-auto col-lg-10 pt-3 px-4">
+ 
+        <% if @orders.count != nil %>
+          <h2>All your orders</h2>
+
+          <% @orders.each do |order| %>
+
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th class="col-md-12">Order n°<%= order.id%></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% order.items.each do |item| %>
+                  <tr>  
+                    <td data-th="Your order">
+                      <div class="row">
+                        <div class="col-md-2">
+                          <%= image_tag(item.image_url, :alt => "search") %>
+                        </div>
+                        <div class="col-md-8">
+                          <h4 class="nomargin">Item n°<%= item.id%></h4>
+                          <p><%= item.description%></p>
+                        </div>
+                        <div class="col-md-2">
+                          <%= item.price%>€
+                        </div>
+                      </div>
+                    </td>
+             
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          <% end %>
+        <% end %>
+      </main>
+    </div>
+  </div>
+</div>
+
