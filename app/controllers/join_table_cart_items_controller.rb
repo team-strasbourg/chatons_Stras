@@ -18,7 +18,7 @@ class JoinTableCartItemsController < ApplicationController
     else
       flash[:error] = "Item has not been added to the cart"
     end
-    redirect_to item_path(params[:item_id])
+    redirect_to root_path
   end
 
   def edit
