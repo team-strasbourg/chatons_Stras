@@ -23,9 +23,11 @@
   <body style="padding-top: 80px;">
 
    
-   
+   <%if is_admin? %>
+    <%= render 'layouts/admin_nav' %>
+  <%else %>
     <%= yield %>
     <%= render 'layouts/footer' %>
-
+  <%end %>
   </body>
 </html>
