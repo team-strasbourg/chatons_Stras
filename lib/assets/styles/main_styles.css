@@ -1404,6 +1404,10 @@ section
 .footer
 {
 	display: block;
+	/* Rajouté par Giancarlo */
+	position: absolute;
+	margin-bottom: 0px;
+	/* Rajouté par Giancarlo */
 	width: 100%;
 	background: #f8f8f8;
 }

@@ -32,9 +32,6 @@ class CartsController < ApplicationController
 
   end
 
-  def remove_item
-    JoinTableCartItem.find_by(cart: current_user.cart, item:Item.find(params[:id])).destroy
-  end
 
   private
 
