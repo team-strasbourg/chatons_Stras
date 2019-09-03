@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :carts
   resources :orders
   resources :join_table_order_items
+  resources :charges
 
 
   root "items#index"
