@@ -1,18 +1,10 @@
-
 <div class="menu">
 
-  <!-- Search -->
- <!--  <div class="menu_search">  -->
- <!--    <form action="#" id="menu_search_form" class="menu_search_form">  -->
- <!--      <input type="text" class="search_input" placeholder="Search Item" required="required">  -->
- <!--      <button class="menu_search_button"><%= image_tag("search.png", :alt => "search") %></button>  -->
- <!--   </form>  -->
- <!-- </div>  -->
   <!-- Navigation -->
   <div class="menu_nav">
     <ul>
-      <li><%= link_to "All Products", items_path %></li>
-      <li><%= link_to "Se connecter", new_user_session_path %> / <%= link_to "S'inscrire", new_user_registration_path %> </li>
+      <li><%= link_to "Log-In", new_user_session_path %> / <%= link_to "Sign-Up", new_user_registration_path %> </li>
+      <li><%= link_to "All Products", items_path %></li> 
       <li><a href="#">About</a></li>
       <li><a href="#">Contact</a></li>
     </ul>
@@ -23,20 +15,21 @@
       <div><div><%= image_tag("phone.svg", :alt => "https://www.flaticon.com/authors/freepik") %></div></div>
       <div>+1 912-252-7350</div>
     </div>
-    <div class="menu_social">
+<!--    <div class="menu_social">
       <ul class="menu_social_list d-flex flex-row align-items-start justify-content-start">
         <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
         <li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
         <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
         <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
       </ul>
-    </div>
+    </div> -->
   </div>
 </div>
 
 <header class="header">
   <div class="header_overlay"></div>
   <div class="header_content d-flex flex-row align-items-center justify-content-start">
+
         <div class="d-flex flex-row align-items-center justify-content-start">
           <div><%= link_to items_path do %>
             <%= image_tag("gitmiaou.png", :alt => "Accueil")%>
@@ -47,15 +40,15 @@
           </div>
         </div>
     <div class="hamburger"><i class="fa fa-bars" aria-hidden="true"></i></div>
-<!--    <nav class="main_nav">-->
-<!--      <ul class="d-flex flex-row align-items-start justify-content-start">-->
-<!--        <li class="active"><%= link_to "All Products", items_path %></li>-->
-<!--        <li><a href="#">Men</a></li>-->
-<!--        <li><%= link_to "Sign in", new_user_session_path %></li>-->
-<!--        <li><%= link_to "Sign up", new_user_registration_path %></li>-->
-<!--        <li><a href="#">Contact</a></li>-->
-<!--      </ul>-->
-<!--    </nav>-->
+       <nav class="main_nav">
+       <ul class="d-flex flex-row align-items-start justify-content-start">
+        <li class="active"><%= link_to "All Products", items_path %></li>
+        <li><a href="#">About</a></li>
+<!--        <li><%= link_to "Sign in", new_user_session_path %></li> -->
+<!--        <li><%= link_to "Sign up", new_user_registration_path %></li> -->
+        <li><a href="#">Contact</a></li>
+        </ul>
+        </nav>
     <div class="header_right d-flex flex-row align-items-center justify-content-start ml-auto">
       <!-- Search -->
       <!--  <div class="header_search">  -->
@@ -66,17 +59,21 @@
        <!-- </div>  -->
       <!-- User -->
       <%if user_signed_in? %>
+
         <div class="user"><a href="<%=user_path(current_user) %>"><div><%= image_tag("user.svg", alt: "https://www.flaticon.com/authors/freepik") %><div>1</div></div></a></div>
         <div class="cart"><a href="<%= cart_path(current_user.cart.id)%>"><div><%= image_tag("cart.svg", :alt => "https://www.flaticon.com/authors/freepik") %> </div></a></div>
+
       <%else%>
-        <div class="user"><a href="<%=new_user_session_path %>"><div><%= image_tag("user.svg", alt: "https://www.flaticon.com/authors/freepik") %><div>1</div></div></a></div>
+        <div class="user"><a href="<%=new_user_session_path %>"><div></div></a></div>
       <%end %>
       <!-- Cart -->
       <!-- Phone -->
       <div class="header_phone d-flex flex-row align-items-center justify-content-start">
-        <div><div><%= image_tag("phone.svg", :alt => "https://www.flaticon.com/authors/freepik") %></div></div>
+        <div><a href="#"><div><%= image_tag("phone.svg", :alt => "https://www.flaticon.com/authors/freepik") %></a></div></div>
         <div>+1 912-252-7350</div>
       </div>
     </div>
+
   </div>
 </header>
+
