@@ -4,6 +4,7 @@ class OrdersController < ApplicationController
   end
 
   def show
+    @order = Order.find(params[:id])
   end
 
   def new
@@ -15,11 +16,17 @@ class OrdersController < ApplicationController
       if @order.save
         fill_order
         empty_cart
+        puts "*******************************"
+        puts "inside save"
         flash[:success] = "Order created"
+        redirect_to order_path(@order.id)
       else
         flash[:error] = "Order failed to be created"
+         redirect_to root_path
       end
+    else 
       redirect_to root_path
+     
     end
   end
 
