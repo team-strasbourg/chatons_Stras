@@ -32,13 +32,14 @@
 		<tfoot class="card-footer">
 			<tr>
 				<td>
-					<a class="btn btn-warning" href="#">Continue shopping</a>
+					<%= link_to "Continue shopping", root_path, class: "btn btn-warning" %>
 				</td>
 				<td class="hidden-xs">
 					<strong>Total: <%= @total_price %>€</strong>
 				</td>
 				<td>
-					<a class="btn btn-success btn-block" href="#">Checkout</a>
+					<%= render 'layouts/transform_to_order' %>
+					<!-- <a class="btn btn-success btn-block" href="#">Checkout</a> -->
 				</td>
 			</tr>
 		</tfoot>
