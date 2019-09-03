@@ -1,9 +1,9 @@
 <div class="container mt-cart">
 	<table class="table table-responsive">
 		<thead class="bg-dark text-light">
-				<th style="width:75%">Your order</th>
-				<th style="width:10%">Price</th> 
-				<th style="width:15%"></th> 
+				<th style="width:60%">Your order</th>
+				<th style="width:15%">Price</th> 
+				<th style="width:25%"></th> 
 		</thead>
 		<tbody>
 			<% @order.items.each do |item| %>
@@ -39,7 +39,7 @@
 				</td>
 				<td>
 					<%= render 'btn_paiement' %>
-					<!-- <a class="btn btn-success btn-block" href="#">Checkout</a> -->
+					<%= render 'btn_delete_order' %>
 				</td>
 			</tr>
 		</tfoot>
