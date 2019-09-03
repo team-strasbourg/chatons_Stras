@@ -18,7 +18,7 @@ class OrdersController < ApplicationController
         fill_order
         empty_cart
         flash[:success] = "Order created"
-        redirect_to order_path(@order.id)
+        redirect_to user_order_path(current_user, @order.id)
       else
         flash[:error] = "Order failed to be created"
          redirect_to root_path
