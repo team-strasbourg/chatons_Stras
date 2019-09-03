@@ -2,23 +2,41 @@
 	<table id="cart" class="table table-hover table-condensed">
 		<thread>
 			<th style="width:50%">Item</th>
-			<th style="width:50%">Price</th>
-			<th style="width:50%">Quantity</th>
-			<th style="width:50%">Subtotal</th>  
+			<th style="width:50%">Price</th> 
 		</thread>
 		<tbody>
-			<td data-th="Item">
-				<div class="row">
-					<div class="col-md-2 hidden-sx">
-						<img class="img-responsive" src="#" alt="#">
+			<tr>
+				<td data-th="Item">
+					<div class="row">
+						<div class="col-md-2 hidden-sx">
+							<img class="img-responsive" src="#" alt="#">
+						</div>
+						<div class="col-md-10">
+							<h4 class="nomargin">Item n°1</h4>
+							<p>Description</p>
+						</div>
 					</div>
-					<div class="col-md-10">
-						<h4 class="nomargin">Item n°1</h4>
-						<p>Description</p>
-					</div>
-				</div>
-			</td>
-			<td data-th="Price">
+				</td>
+				<td data-th="Price">Price</td>
+				<td class="actions" data-th="">
+					<button class="btn btn-danger btn-sm">
+						<i class="fa fa-trash-o"></i>
+					</button>
+				</td>
+		 </tr>
 		</tbody>
+		<tfoot>
+			<tr>
+				<td>
+					<a class="btn btn-warning" href="#">Continue shopping</a>
+				</td>
+				<td class="hidden-xs text-center">
+					<strong>Total ...</strong>
+				</td>
+				<td>
+					<a class="btn btn-success btn-block" href="#">Checkout</a>
+				</td>
+			</tr>
+		</tfoot>
 	</table>
 </div>
