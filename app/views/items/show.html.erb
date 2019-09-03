@@ -23,7 +23,7 @@
 							<div id="slider" class="flexslider">
 								<ul class="slides">
 									<li>
-										<%= image_tag("product_image_1.jpg", :alt => "Kitty picture") %>
+										<%= image_tag(@item.image_url, :alt => "Kitty picture") %>
 									</li>
 								</ul>
 							</div>
@@ -34,18 +34,18 @@
 					<div class="col-lg-6 product_col">
 						<div class="product_info">
 							<br><br><br>
-							<h2>Item.title</h2>
+							<h2><%= @item.title %></h2>
 							</div>
 							<div class="product_text">
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec consequat lorem. Maecenas elementum at diam consequat bibendum. Mauris iaculis fringilla ex, sit amet semper libero facilisis sit amet. Nunc ut aliquet metus. Praesent pulvinar justo sed velit tempus bibendum. Quisque dictum lorem id mi viverra, in auctor justo laoreet. Nam at massa malesuada, ullamcorper metus vel, consequat risus. Phasellus ultricies velit vel accumsan porta.</p>
+								<p><%= @item.description %></p>
 							</div>
 							<div class="product_buttons">
 								<div class="text-right d-flex flex-row align-items-start justify-content-start">
 									<div class="product_fav text-center d-flex flex-column align-items-center justify-content-center">
-										<div><div><strong>3.99€</strong><div></div></div></div>
+										<div><div><strong><%= @item.price %> €</strong><div></div></div></div>
 									</div>
 									<div class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
-										<div><div><%= image_tag("cart.svg", :alt => "Cart") %><div>+</div></div></div>
+										    <%= render 'button_add_to_cart'  %>
 									</div>
 								</div>
 							</div>
@@ -57,7 +57,6 @@
 
 		<!-- Boxes -->
 
-    <%= render 'button_add_to_cart', locals:{item: @item, cart: @cart} %>
 		<!-- Footer -->
 
 
