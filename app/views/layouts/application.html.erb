@@ -12,11 +12,20 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
   </head>
+  <header>
 
-  <body>
-    <%= render 'layouts/navbar'%>
-    <%= render 'layouts/flash'%>
+     <%= render 'layouts/navbar'%>
+
+  </header>
+
+   <%= render 'layouts/flash'%>
+
+  <body style="padding-top: 80px;">
+
+   
+   
     <%= yield %>
     <%= render 'layouts/footer' %>
+
   </body>
 </html>

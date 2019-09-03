@@ -1,6 +1,6 @@
 class JoinTableCartItemsController < ApplicationController
    before_action :authenticate_user!
-  
+
   def index
   end
 
@@ -18,7 +18,7 @@ class JoinTableCartItemsController < ApplicationController
     else
       flash[:error] = "Item has not been added to the cart"
     end
-    redirect_to item_path(params[:item_id])
+    redirect_to root_path
   end
 
   def edit
@@ -28,5 +28,9 @@ class JoinTableCartItemsController < ApplicationController
   end
 
   def destroy
+    jtci = JoinTableCartItem.find(params[:id])
+    jtci.destroy
+    flash[:success] = "Item deleted"
+    redirect_to cart_path(current_user.cart.id)
   end
 end

@@ -1,5 +1,11 @@
-<%if user_signed_in? %>
-  <%=form_with(url: item_join_table_cart_items_path(@item.id), method: :post) do %>
-    <%= submit_tag("Add to cart", class: "btn btn-primary") %>
+<div style="height:100%">
+  <%if user_signed_in? %>
+    <%=link_to item_join_table_cart_items_path(item.id), method: :post do %>
+      <%= image_tag("cart.svg", :alt => "Cart", style:"height:80%;width:80%") %>
+    <%end %>
+  <%else%>
+    <%= link_to new_user_session_path do %>
+      <%= image_tag("cart.svg", :alt => "Cart", style:"height:80%;width:80%")%>
+    <% end %>
   <%end %>
-<%end %>
+</div>

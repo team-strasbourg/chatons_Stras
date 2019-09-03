@@ -1,5 +1,0 @@
-<%if user_signed_in? %>
-  <%=form_with(url: orders_path, method: :post) do %>
-    <%= submit_tag("Confirm order", class: "btn btn-primary") %>
-  <%end %>
-<%end %>

@@ -7,7 +7,9 @@ class CartsController < ApplicationController
   end
 
   def show
-
+    @cart = current_user.cart
+    @items = current_user.cart.items 
+    @total_price = @cart.total_price
   end
 
   def new
@@ -29,5 +31,9 @@ class CartsController < ApplicationController
   def destroy
 
   end
+
+
+  private
+
 
 end

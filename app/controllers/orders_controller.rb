@@ -4,6 +4,8 @@ class OrdersController < ApplicationController
   end
 
   def show
+    @order = Order.find(params[:id])
+
   end
 
   def new
@@ -16,10 +18,14 @@ class OrdersController < ApplicationController
         fill_order
         empty_cart
         flash[:success] = "Order created"
+        redirect_to order_path(@order.id)
       else
         flash[:error] = "Order failed to be created"
+         redirect_to root_path
       end
+    else 
       redirect_to root_path
+     
     end
   end
 
@@ -30,6 +36,10 @@ class OrdersController < ApplicationController
   end
 
   def destroy
+    @order = Order.find(params[:id])
+    @order.destroy
+    flash[:success] = "Your order has been deleted!"
+    redirect_to root_path
   end
 
   private
@@ -43,4 +53,5 @@ class OrdersController < ApplicationController
   def empty_cart
     JoinTableCartItem.where(cart: current_user.cart).destroy_all
   end
+
 end
