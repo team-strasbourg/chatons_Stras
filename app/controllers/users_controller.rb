@@ -1,8 +1,11 @@
 class UsersController < ApplicationController
+
   def index
   end
 
   def show
+    @user = User.find(params[:id])
+    @orders = @user.orders
   end
 
   def new
@@ -20,4 +23,5 @@ class UsersController < ApplicationController
 
   def destroy
   end
+
 end

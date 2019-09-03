@@ -16,34 +16,60 @@
           <li class="nav-item">
             <a class="nav-link" href="#">
               <span data-feather="file"></span>
-              My orders
+              My orders still to be paid
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span data-feather="file"></span>
+              My orders history
             </a>
           </li>
         </ul>
       </div>
     </nav>
 
-    <div class="col-md-10"> 
+    <div class="col-md-8"> 
      
-      <h2>Tentative de créer un controller admins qui permettrait de ne pas arriver cash sur la gestion des users ok!!!!</h2>
-      <h2>Reste à changer la route....</h2>
-    </div>
+      <main role="main" class="col-md-10 ml-sm-auto col-lg-10 pt-3 px-4">
+ 
+        <% if @orders.count != nil %>
+          <h2>All your orders</h2>
 
-  </div> 
+          <% @orders.each do |order| %>
+
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th class="col-md-12">Order n°<%= order.id%></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% order.items.each do |item| %>
+                  <tr>  
+                    <td data-th="Your order">
+                      <div class="row">
+                        <div class="col-md-2">
+                          <%= image_tag(item.image_url, :alt => "search") %>
+                        </div>
+                        <div class="col-md-8">
+                          <h4 class="nomargin">Item n°<%= item.id%></h4>
+                          <p><%= item.description%></p>
+                        </div>
+                        <div class="col-md-2">
+                          <%= item.price%>€
+                        </div>
+                      </div>
+                    </td>
+             
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          <% end %>
+        <% end %>
+      </main>
+    </div>
+  </div>
 </div>
 
-<!-- <div class="row">
-	<div class="col-lg-12 user_col">
-		<ul class="nav nav-tabs">
-			<li class="active">
-				<a class="active show" href="#" data-toggle="tab" aria-expended="true">My profile</a>
-			</li>
-			<li class="">
-				<a class="active show" href="#" data-toggle="tab" aria-expended="true">My orders</a>
-			</li>
-		</ul>
-		<div class="user_info">
-			
-		</div>
-	</div>
-</div> -->
