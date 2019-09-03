@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   # BEFORE ACTION!!!!
-  
+
   def index
   end
 
@@ -21,8 +21,13 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
-    redirect_to user_path(@user.id)
+    puts '#' * 60
+    puts params
+    if @user.update(user_params)
+      redirect_to user_path(@user.id)
+    else
+      render 'edit'
+    end
   end
 
   def destroy
@@ -31,7 +36,7 @@ class UsersController < ApplicationController
   private 
 
   def user_params
-    params.permit(:name, :last_name, :description)
+    params[:user].permit(:name, :last_name, :description)
   end
 
 end

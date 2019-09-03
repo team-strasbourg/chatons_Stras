@@ -54,15 +54,15 @@
 
           <%when 'edit_user'%>
           <div class="form-group">
-            <%= f.text_field :name, placeholder: "John" %>
+            <%= f.text_field :name, placeholder: current_user.name %>
           </div>
 
           <div class="form-group">
-            <%= f.text_field :last_name, placeholder: "Doe" %>
+            <%= f.text_field :last_name, placeholder: current_user.last_name %>
           </div>
 
           <div class="form-group">
-            <%= f.text_area :description, placeholder: "I can speak Russian… in French" %>
+            <%= f.text_area :description, placeholder: current_user.description %>
           </div>
 
         <%else %>
