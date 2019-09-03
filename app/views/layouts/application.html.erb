@@ -20,14 +20,15 @@
 
    <%= render 'layouts/flash'%>
 
-  <body style="padding-top: 80px;">
 
-   
-   <%if is_admin? %>
-    <%= render 'layouts/admin_nav' %>
+
+  <%if is_admin? %>
+    <body class="justify-content-start">
+      <%= render 'layouts/admin_nav' %>
   <%else %>
-    <%= yield %>
-    <%= render 'layouts/footer' %>
+    <body style="padding-top: 80px;">
+      <%= yield %>
+        <%= render 'layouts/footer' %>
   <%end %>
   </body>
 </html>

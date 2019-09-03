@@ -1,12 +1,11 @@
 <%if is_admin? %>
-  <header>
   <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap m-0 p-0">
     <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">AdminBoard</a>
     <ul class="navbar-nav px-3">
       <li><%= link_to "Disconnect", destroy_user_session_path , method: :delete%></li>
     </ul>
   </nav>
-  </header>
+
 <%else %>
 <div class="menu">
 
