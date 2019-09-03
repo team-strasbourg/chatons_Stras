@@ -71,6 +71,7 @@
         </div>
         <div class="cart"><a href="<%= user_cart_path(current_user, current_user.cart.id)%>"><div><%= image_tag("cart.svg", :alt => "https://www.flaticon.com/authors/freepik") %><div class="cart-number-items"><%= current_user.cart.items.length %></div></div></a></div>
 
+
       <%else%>
       <div class="dropdown">
         <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top:20px">

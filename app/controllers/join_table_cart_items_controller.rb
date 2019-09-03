@@ -31,6 +31,6 @@ class JoinTableCartItemsController < ApplicationController
     jtci = JoinTableCartItem.find(params[:id])
     jtci.destroy
     flash[:success] = "Item deleted"
-    redirect_to cart_path(current_user.cart.id)
+    redirect_to user_cart_path(current_user, current_user.cart)
   end
 end

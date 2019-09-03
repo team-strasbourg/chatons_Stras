@@ -1,11 +1,15 @@
 class UsersController < ApplicationController
 
+
   before_action :authenticate_user!, only: [:edit, :update]
+
 
   def index
   end
 
   def show
+    @user = User.find(params[:id])
+    @orders = @user.orders
   end
 
   def new
@@ -31,10 +35,12 @@ class UsersController < ApplicationController
   def destroy
   end
 
+
   private 
 
   def user_params
     params[:user].permit(:first_name, :last_name, :description)
   end
+
 
 end
