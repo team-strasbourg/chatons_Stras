@@ -2,7 +2,7 @@ module Admin
   class OrdersController < ApplicationController
     before_action :authenticate_user!
     def index
-      @orders = Order.all
+      @orders = Order.all.sort_by{|order| order.paid ? 1 : 0} #SORT BY TRUE FALSE
     end
 
     def show
@@ -25,9 +25,11 @@ module Admin
 
     def destroy
       @order = Order.find(params[:id])
-      @order.destroy
-      flash[:success] = "Your order has been deleted!"
-      redirect_to root_path
+      unless @order.is_already_paid
+        @order.destroy
+        flash[:success] = "Your order has been deleted!"
+        redirect_to root_path
+      end
     end
   end
 end
