@@ -50,9 +50,11 @@
           <div class="form-group">
             <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm your password" %>
           </div>
+
+
           <%when 'edit_user'%>
           <div class="form-group">
-            <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm your password" %>
+            <%= f.text_field :name, placeholder: "John Doe" %>
           </div>
 
         <%else %>
