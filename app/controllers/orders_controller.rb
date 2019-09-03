@@ -17,8 +17,6 @@ class OrdersController < ApplicationController
       if @order.save
         fill_order
         empty_cart
-        puts "*******************************"
-        puts "inside save"
         flash[:success] = "Order created"
         redirect_to order_path(@order.id)
       else
@@ -55,4 +53,5 @@ class OrdersController < ApplicationController
   def empty_cart
     JoinTableCartItem.where(cart: current_user.cart).destroy_all
   end
+
 end

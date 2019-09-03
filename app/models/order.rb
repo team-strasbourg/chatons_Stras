@@ -7,4 +7,8 @@ class Order < ApplicationRecord
     # Calculate total price of items in cart
     self.items.sum(:price)
   end
+
+  def is_already_paid
+    return self.paid
+  end
 end
