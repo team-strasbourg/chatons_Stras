@@ -21,8 +21,8 @@ class ChargesController < ApplicationController
                                        currency: 'usd',
                                    })
     @order.update(paid: true)
-    UserMailer.deliver_order(current_user, @order).deliver_now
-    AdminMailer.notify_admin(current_user, @order).deliver_now
+    # UserMailer.deliver_order(current_user, @order).deliver_now
+    # AdminMailer.notify_admin(current_user, @order).deliver_now
     redirect_to root_path
   rescue Stripe::CardError => e
     flash[:error] = e.message
