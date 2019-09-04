@@ -9,6 +9,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    unless current_user.id == @user.id 
+     flash[:error] = "You can't go to other user's profile!!"
+     redirect_to user_path(current_user)
+    end
     @orders = @user.orders
   end
 
@@ -41,6 +45,4 @@ class UsersController < ApplicationController
   def user_params
     params[:user].permit(:first_name, :last_name, :description)
   end
-
-
 end
