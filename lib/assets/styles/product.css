@@ -43,7 +43,7 @@
 body
 {
 	font-family: 'Roboto', sans-serif;
-	font-size: 14px;
+	font-size: 18px;
 	font-weight: 400;
 	background: #FFFFFF;
 	color: #a5a5a5;
@@ -95,6 +95,7 @@ a
 	-ms-transition: all 200ms ease;
 	-o-transition: all 200ms ease;
 	transition: all 200ms ease;
+	text-decoration: none;
 }
 a, a:hover, a:visited, a:active, a:link
 {
