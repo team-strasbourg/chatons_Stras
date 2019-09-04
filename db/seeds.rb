@@ -54,5 +54,5 @@ Order.all.each do |order|
 end
 puts 'Orders filled'
 
-User.create(email:'admin@admin.com', password: 'admin123', admin: true)
+User.create(email:'admin123@admin.com', password: 'admin123', admin: true)
 puts 'Admin created'
