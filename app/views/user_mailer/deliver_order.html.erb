@@ -1,6 +1,4 @@
-<p> Salut, ta commande est bien passée</p>
+<p> Salut <%= @user.first_name%>, ta commande est bien passée</p>
 
-<p>Voici les photos commandées: <br>
-<%@images.each do |image|%>
-<%= image_tag attachments[image].url, style:"max-width:200px;" %>
-<%end%>
+<p>Tu trouveras les photos commandées en pièces jointes<br>
+
