@@ -13,12 +13,13 @@
   <!-- Navigation -->
   <div class="menu_nav">
     <ul>
-      <li><%= link_to "Log-In", new_user_session_path %> / <%= link_to "Sign-Up", new_user_registration_path %> </li>
       <li><%= link_to "All Products", items_path %></li>
-
-      <li><a href="#">About</a></li>
-      <li><a href="#">Contact</a></li>
-      <li ><%= link_to "Log-In", new_user_session_path %>
+      <br>
+      <li> <%= link_to "About", about_path %></li>
+      <li><%= link_to "Contact Us", contact_path %></li>
+      <li><%= link_to "Terms & Conditions", use_terms_path %></li>
+      <br>
+      <li><%= link_to "Log-In", new_user_session_path %></li>
       <!-- <%= link_to "Sign-Up", new_user_registration_path %> --> </li>
     </ul>
   </div>
@@ -56,10 +57,11 @@
        <nav class="main_nav">
        <ul class="d-flex flex-row align-items-start justify-content-start">
         <li class="active"><%= link_to "All Products", items_path %></li>
-        <li><a href="#">About</a></li>
+        <li><%= link_to "About", about_path %></li>
 <!--        <li><%= link_to "Sign in", new_user_session_path %></li> -->
 <!--        <li><%= link_to "Sign up", new_user_registration_path %></li> -->
-        <li><a href="#">Contact</a></li>
+        <li><%= link_to "Contact", contact_path %></li>
+        <li><%= link_to "Terms & Conditions", use_terms_path %></li>
         </ul>
         </nav>
     <div class="header_right d-flex flex-row align-items-center justify-content-start ml-auto">
@@ -99,12 +101,12 @@
         </div>
 
       <%end %>
-      
+
       <!-- Cart -->
       <!-- Phone -->
       <div class="header_phone d-flex flex-row align-items-center justify-content-start">
         <div><a href="#"><div><%= image_tag("phone.svg", :alt => "https://www.flaticon.com/authors/freepik") %></a></div></div>
-        <div>+1 912-252-7350</div>
+        <div>+33 141 592 653 589</div>
       </div>
     </div>
 </header>
