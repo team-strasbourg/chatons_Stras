@@ -1,31 +1,9 @@
-<h1>Orders</h1>
-<div class="table-responsive">
-  <table class="table table-striped table-sm">
-    <thead>
-    <tr>
-      <th>Id</th>
-      <th>User mail</th>
-      <th>Creation date</th>
-      <th>Price</th>
-      <th>Paid ?</th>
-      <th colspan="3"></th>
-    </tr>
-    </thead>
-
-    <tbody>
-    <% @orders.each do |order| %>
-      <tr>
-        <td><%= order.id %></td>
-        <td><%= User.find(order.user_id).email %></td>
-        <td><%= order.created_at %></td>
-        <td><%= order.total_price %></td>
-        <td><%= order.paid %></td>
-        <td><%= link_to 'Edit', edit_admin_order_path(order) %></td>
-        <td><%= link_to 'Destroy', admin_order_path(order), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
-</div>
-<br>
-
+<%= render partial: "admin/shared/index", locals:{resources: @orders,
+                                                  action: 'orders',
+                                                  path_new: admin_orders_path,
+                                                  path: "/admin/orders/",
+                                                  edition: false,
+                                                  title: 'Orders',
+                                                  titles: ['User mail','Creation date', 'Price', 'Paid ?' ],
+                                                  values: %w(user_id created_at total_price paid),
+                                                  button_new: "New Order"}%>
