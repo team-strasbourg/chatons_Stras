@@ -1,6 +1,7 @@
 class CartsController < ApplicationController
 
   before_action :authenticate_user! 
+  before_action :check_other_carts
 
   def index
 
@@ -34,6 +35,14 @@ class CartsController < ApplicationController
 
 
   private
+
+  def check_other_carts
+  # method who doesn't allow a user_signed_in to check the cart of the other users
+    if user_signed_in? != current_user
+      flash[:error] = "You can't go to other user's cart!!"
+      redirect_to user_path(current_user)
+    end
+  end
 
 
 end

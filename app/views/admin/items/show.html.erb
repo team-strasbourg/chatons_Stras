@@ -22,9 +22,13 @@
 						<div class="product_image_slider_container">
 							<div id="slider" class="flexslider">
 								<ul class="slides">
-									<li>
-										<%= image_tag(@item.image_url, :alt => "Kitty picture") %>
-									</li>
+                  <li>
+                    <%if @item.avatar.attached?%>
+                      <%= image_tag @item.avatar, alt: 'Kitty picture' %>
+                    <%else %>
+                      <%= image_tag(@item.image_url, :alt => "Kitty picture") %>
+                    <%end%>
+                  </li>
 								</ul>
 							</div>
 						</div>
