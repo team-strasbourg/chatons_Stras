@@ -65,6 +65,15 @@
               <%= f.text_area :description, placeholder: current_user.description %>
             </div>
 
+            <% if is_admin? %>
+              <div class="form-group">
+                <%= f.radio_button(:admin, true,autocomplete: :admin)  %>
+                <%= f.label(:admin, "True") %>
+                <%= f.radio_button(:admin, false,autocomplete: :admin) %>
+                <%= f.label(:admin, "False") %>
+              </div>
+            <%end %>
+
 <!--          NEW USER-->
           <%when 'new_user' %>
             <div class="form-group">
