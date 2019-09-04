@@ -25,8 +25,6 @@ module Admin
     end
 
     def destroy
-      puts "#"*60
-      puts params
       @order = Order.find(params[:id])
       unless @order.is_already_paid
         @order.destroy
