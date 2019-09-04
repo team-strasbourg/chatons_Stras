@@ -10,4 +10,7 @@ class Item < ApplicationRecord
   validates :price, presence: true, numericality: { in: 1.00..1000.00 }
   validates :image_url, presence: true
 
+  def avatar_attached? # for admin table
+    self.avatar.attached?
+  end
 end
