@@ -2,47 +2,48 @@
 	<table class="table table-responsive">
 		<thead class="bg-dark text-light">
 				<th style="width:60%">Your order</th>
-				<th style="width:15%">Price</th> 
-				<th style="width:25%"></th> 
+				<th style="width:12%">Price</th> 
+				<th style="width:28%"></th> 
 		</thead>
 		<tbody>
 			<% @order.items.each do |item| %>
-			<tr>	
-						
+			<tr>			
 				<td data-th="Your order">
 					<div class="row">
 						<div class="col-md-2">
 							<%= image_tag(item.image_url, :alt => "search") %>
 						</div>
 						<div class="col-md-10">
-							<h4 class="nomargin">Item n°<%= item.id%></h4>
+							<h4 class="nomargin"><%= link_to "Item n°#{item.id}", item_path(item) %></h4>
 							<p><%= item.description%></p>
 						</div>
 					</div>
 				</td>
 				<td data-th="Price"><%= item.price%>€</td>
-				<td class="actions" data-th="">
-
-				 
-				</td>
-				
+				<td class="actions" data-th=""> 
+				</td>	
 		  </tr>
 		  <% end %>
 		</tbody>
+
 		<tfoot class="card-footer">
 			<tr>
-				<td>
+				<td data-th="Your order">
 					<%= link_to "Continue shopping", root_path, class: "btn btn-warning" %>
 				</td>
-				<td class="hidden-xs">
+				<td class="hidden-xs" data-th="Price">
 					<strong>Total: <%= @order.total_price %>€</strong>
 				</td>
+				<td class="d-flex justify-content-around" data-th="">
         <%unless @order.is_already_paid %>
-          <td>
+          <div>
             <%= render partial: 'btn_paiement', locals:{order: @order} %>
+          </div>
+          <div>
             <%= render 'btn_delete_order' %>
-          </td>
+          </div>
           <%end %>
+        </td>
 			</tr>
 		</tfoot>
 	</table>

@@ -1,14 +1,19 @@
 class UsersController < ApplicationController
 
 
-  before_action :authenticate_user!, only: [:edit, :update]
+  before_action :authenticate_user!
 
 
   def index
   end
 
   def show
+
     @user = User.friendly.find(params[:id])
+    unless current_user.id == @user.id
+     flash[:error] = "You can't go to other user's profile!!"
+     redirect_to user_path(current_user)
+    end
     @orders = @user.orders
   end
 
@@ -41,6 +46,4 @@ class UsersController < ApplicationController
   def user_params
     params[:user].permit(:first_name, :last_name, :description)
   end
-
-
 end

@@ -16,22 +16,29 @@ JoinTableCartItem.destroy_all
 JoinTableOrderItem.destroy_all
 
 20.times do
-	Item.create(title:Faker::Quote.robin, description:Faker::Quote.matz, price:Faker::Number.decimal(l_digits: 2), image_url:"item_cat.jpg")
+  Item.create(title:Faker::Quote.robin,
+              description:Faker::Quote.matz,
+              price:Faker::Number.decimal(l_digits: 2),
+              image_url:'item_cat.jpg')
 end
-puts "Items created"
+puts 'Items created'
 5.times do
-  User.create(email: Faker::Internet.email, password: Faker::Internet.password, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, description: Faker::Quote.most_interesting_man_in_the_world)
+  User.create(email: Faker::Internet.email,
+              password: Faker::Internet.password,
+              first_name: Faker::Name.first_name,
+              last_name: Faker::Name.last_name,
+              description: Faker::Quote.most_interesting_man_in_the_world)
 end
-puts "Users created"
+puts 'Users created'
 
 User.all.each do |user|
   Cart.create(user: user)
 end
-puts "Carts created"
+puts 'Carts created'
 
 Cart.all.each do |cart|
   rand(1..5).times do
-		JoinTableCartItem.create(cart: cart, item: Item.all.sample)
+    JoinTableCartItem.create(cart: cart, item: Item.all.sample)
   end
 end
 puts 'Carts filled with items'
@@ -47,5 +54,5 @@ Order.all.each do |order|
 end
 puts 'Orders filled'
 
-User.create(email:'admin@admin.com', password:"admin123", admin: true)
+User.create(email:'admin@admin.com', password: 'admin123', admin: true)
 puts 'Admin created'
