@@ -28,4 +28,6 @@ Rails.application.routes.draw do
   end
   root to:"items#index"
 
+  get '/profile',    to: 'users#show'
+
 end

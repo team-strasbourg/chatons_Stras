@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  extend FriendlyId
   after_create :welcome_send
 
   devise :database_authenticatable, :registerable,
@@ -8,8 +9,15 @@ class User < ApplicationRecord
   has_one :cart, dependent: :destroy
   has_many :orders, dependent: :destroy
 
+  friendly_id :usermail, use: :slugged
+
+    def usermail
+      usermail = self.email.split("@")
+      "#{usermail[0]}"
+    end
+
   def welcome_send
     UserMailer.welcome_email(self).deliver_now
   end
-  
+
 end
