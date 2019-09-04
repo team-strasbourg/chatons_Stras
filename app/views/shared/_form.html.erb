@@ -51,7 +51,7 @@
             <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm your password" %>
           </div>
 
-
+<!--          EDIT USER-->
           <%when 'edit_user'%>
             <div class="form-group">
               <%= f.text_field :first_name, placeholder: current_user.first_name %>
@@ -64,6 +64,8 @@
             <div class="form-group">
               <%= f.text_area :description, placeholder: current_user.description %>
             </div>
+
+<!--          NEW USER-->
           <%when 'new_user' %>
             <div class="form-group">
               <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email" %>
@@ -71,7 +73,10 @@
             <div class="form-group">
               <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password" %>
             </div>
-        <%else %>
+            <div class="form-group">
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm your password" %>
+            </div>
+          <%else %>
         <%end %>
 
 <!--        FOR ALL FORMS-->

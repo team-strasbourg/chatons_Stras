@@ -16,7 +16,16 @@ module Admin
     end
 
     def create
-
+      @user = User.new(email: params[:user][:email], password: params[:user][:password])
+      if @user.save
+        Cart.create(user: @user)
+        flash[:success]='User created'
+        redirect_to admin_root_path
+      else
+        puts "#"*60
+        puts @user.errors.messages
+        redirect_to new_admin_user_path
+      end
     end
 
     def edit
