@@ -3,7 +3,7 @@
   <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap m-0 p-0">
     <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">AdminBoard</a>
     <ul class="navbar-nav px-3">
-      <li><%= link_to "Disconnect", destroy_user_session_path , method: :delete%></li>
+      <li><%= link_to "Disconnect", destroy_user_session_path , method: :delete %></li>
     </ul>
   </nav>
 
@@ -80,8 +80,8 @@
         <div class="user"><a href=""><div><%= image_tag("user.svg", alt: "https://www.flaticon.com/authors/freepik") %></div></a></div>
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" <%= link_to "Profile", user_path(current_user) %>
-        <a class="dropdown-item" <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+        <div class="dropdown-item"> <%= link_to "Profile", user_path(current_user) %> </div>
+        <div class="dropdown-item"> <%= link_to "Log out", destroy_user_session_path, method: :delete %> </div>
         </div>
         </div>
         <div class="cart"><a href="<%= user_cart_path(current_user, current_user.cart.id)%>"><div><%= image_tag("cart.svg", :alt => "https://www.flaticon.com/authors/freepik") %><div class="cart-number-items"><%= current_user.cart.items.length %></div></div></a></div>
@@ -93,11 +93,13 @@
         <div class="user"><a href=""><div><%= image_tag("user.svg", alt: "https://www.flaticon.com/authors/freepik") %></div></a></div>
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" <%= link_to "Log in", new_user_session_path %>
-        <a class="dropdown-item" <%= link_to "Sign up", new_user_registration_path %>
+        <div class="dropdown-item"> <%= link_to "Log in", new_user_session_path %> </div>
+        <div class="dropdown-item"> <%= link_to "Sign up", new_user_registration_path %> </div>
         </div>
         </div>
+
       <%end %>
+      
       <!-- Cart -->
       <!-- Phone -->
       <div class="header_phone d-flex flex-row align-items-center justify-content-start">
