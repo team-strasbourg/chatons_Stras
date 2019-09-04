@@ -1,13 +1,16 @@
 class AdminMailer < ApplicationMailer
-  default from: 'no-reply@chatons.fr'
+
+  default to: -> {User.where("admin = true").pluck(:email)}, 
+          from:'no-reply@chatons.fr'
 
   def notify_admin(user, order)
-    @admin = User.where("admin = true")
+    puts '4' * 60
+    puts User.where("admin = true").pluck(:email)
     
     @user = user
 
     @order = order
 
-    mail(to: @admin.first.email, subject: "Commande") 
+    mail(subject: "Commande nº#{@order.id}") 
   end
 end
