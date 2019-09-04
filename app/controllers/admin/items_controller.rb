@@ -19,7 +19,8 @@ module Admin
       @item = Item.new(title: my_params[:title],
                        description: my_params[:description],
                        price: my_params[:price],
-                       image_url: my_params[:image_url])
+                       image_url: my_params[:image_url],
+                       avatar: my_params[:avatar])
       if @item.save
         flash[:success] = 'Item created'
         redirect_to admin_items_path
@@ -34,6 +35,8 @@ module Admin
     end
 
     def update
+      puts "#"*60
+      puts params
       @item = Item.find(params[:id])
       if @item.update(item_params)
         redirect_to admin_items_path
@@ -51,7 +54,7 @@ module Admin
     private
 
     def item_params
-      params[:item].permit(:title, :description, :price, :image_url)
+      params[:item].permit(:title, :description, :price, :image_url, :avatar)
     end
   end
 end
