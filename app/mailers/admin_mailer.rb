@@ -4,9 +4,6 @@ class AdminMailer < ApplicationMailer
           from:'no-reply@chatons.fr'
 
   def notify_admin(user, order)
-    puts '4' * 60
-    puts User.where("admin = true").pluck(:email)
-    
     @user = user
 
     @order = order
