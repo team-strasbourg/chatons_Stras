@@ -1,6 +1,6 @@
-Salut, ta commande est bien passée
-Voici les photos commandées:
 
-<%@images.each do |image|%>
-<%= image_tag attachments[image].url, style:"max-width:200px;" %>
-<%end%>
+
+Salut <%= @user.first_name%>,
+***************************** 
+Ta commande a bien été prise en compte!
+Tu trouveras les photos commandées en pièces jointes!

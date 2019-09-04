@@ -9,7 +9,6 @@ class Order < ApplicationRecord
   end
 
   def is_already_paid
-    return self.paid
+    self.paid
   end
-
 end
