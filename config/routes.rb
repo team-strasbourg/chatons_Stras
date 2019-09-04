@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  
-
 
   devise_for :users, controllers: {
       registrations: 'users/registrations'
@@ -20,10 +18,14 @@ Rails.application.routes.draw do
     resources :join_table_cart_items
   end
 
-  
-
   resources :join_table_order_items
 
-  root "items#index"
+  namespace :admin do
+    root to:"admin/users#index"
+    resources :users
+    resources :items
+    resources :orders
+  end
+  root to:"items#index"
 
 end
