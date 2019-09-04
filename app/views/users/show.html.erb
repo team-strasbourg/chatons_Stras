@@ -1,77 +1,128 @@
+
+
 <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
   <h4 class="navbar-brand col-sm-3 col-md-2 mr-0">My profile section</h4>
 </nav>
 
-<div class="container-fluid">
-  <div class="row">
-    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-      <div class="sidebar-sticky">
-        <ul class="nav flex-column">
-          <li class="nav-item">
-            <a class="nav-link" href="<%= user_path(current_user)%>">
-              <span data-feather="shopping-cart"></span>
-              My profile
-            </a>
-          </li>
-          <li class="nav-item">
 
-            <a class="nav-link" href="#">
-
-              <span data-feather="file"></span>
-              My orders still to be paid
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file"></span>
-              My orders history
-            </a>
-          </li>
+<div class="container">
+  <div class="profile-section">
+    <div class="row">
+      <div class="col-md-3">
+        <h2 class="profile-title"><strong>Your Profile</strong></h2>
+      </div>
+      <div class="col-md-9">
+        <ul>
+          <div class="row">
+            <div class="col-md-6">
+              <li class="form-group">
+                <label for="exampleFormControlInput1">Your First Name</label>
+                <div class="card">
+                  <div class="card-body">
+                    <%= current_user.first_name %>
+                  </div>
+                </div>
+              </li>
+              <li class="form-group">
+                <label for="exampleFormControlInput1">Your Last Name</label>
+                <div class="card">
+                  <div class="card-body">
+                   <%= current_user.last_name %>
+                  </div>
+                </div>
+              </li>
+              <li class="form-group">
+                <label for="exampleFormControlInput1">Your Email address</label>
+                <div class="card">
+                  <div class="card-body">
+                   <%= current_user.email %>
+                  </div>
+                </div>
+              </li>
+              <li>
+               <%= link_to "Edit my profile", edit_user_path(current_user), class: "btn btn-success"%>
+              </div>
+            </li>
+            <div class="col-md-6">
+              <li class="form-group">
+                <label>Your Description</label>
+                <div class="card">
+                  <div class="card-body">
+                    <%= current_user.description %>
+                  </div>
+                </div>
+              </li>
+            </div>
+          </div>
         </ul>
       </div>
-    </nav>
-
-    <div class="col-md-8"> 
-     
-      <main role="main" class="col-md-10 ml-sm-auto col-lg-10 pt-3 px-4">
- 
-        <% if @orders.count != nil %>
-          <h2>All your orders</h2>
-
-          <% @orders.each do |order| %>
-
-            <table class="table">
-              <thead class="thead-dark">
-                <tr>
-                  <th class="col-md-12">Order n°<%= order.id%></th>
-                </tr>
-              </thead>
-              <tbody>
-                <% order.items.each do |item| %>
-                  <tr>  
-                    <td data-th="Your order">
-                      <div class="row">
-                        <div class="col-md-2">
-                          <%= image_tag(item.image_url, :alt => "search") %>
-                        </div>
-                        <div class="col-md-8">
-                          <h4 class="nomargin">Item n°<%= item.id%></h4>
-                          <p><%= item.description%></p>
-                        </div>
-                        <div class="col-md-2">
-                          <%= item.price%>€
-                        </div>
-                      </div>
-                    </td>
-             
-                  </tr>
-                <% end %>
-              </tbody>
-            </table>
-          <% end %>
-        <% end %>
-      </main>
     </div>
   </div>
-</div>
 
+  <div class="profile-section">
+    <div class="row">
+      <div class="col-md-4">
+       <h2 class="profile-title"><strong>Orders to be paid</strong></h2>
+     <!--  <% if @orders.count != nil %> -->
+      </div>
+      <div class="col-md-8">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col" style="width: 20%;">Order number</th>
+              <th scope="col" style="width: 60%;">Created date of order</th>
+              <th scope="col" style="width: 20%;"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @orders.each do |order| %>
+              <% unless order.paid %>
+                <tr>
+                  <th scope="row"><%= order.id %></th>
+                  <td><%= order.created_at %></td>
+                  <td><%= link_to "Go to this order and pay", user_order_path(current_user, order), class: "btn btn-success"%></td>
+                </tr>
+              <%end%>
+            <% end %>
+          </tbody>
+        </table>
+    <!--   <% else %>
+        <h3>You have no orders still to be paid</h3>
+      <% end %> -->
+      </div>
+    </div>
+  </div>
+
+  <div class="profile-section">
+    <div class="row">
+      <div class="col-md-4">
+        <h2 class="profile-title"><strong>Orders paid</strong></h2>
+      <!--   <% if @orders.count != nil %> -->
+      </div>
+      <div class="col-md-8">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col" style="width: 20%;">Order number</th>
+                <th scope="col" style="width: 60%;">Created date of order</th>
+                <th scope="col" style="width: 20%;"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @orders.each do |order| %>
+                <% if order.paid %>
+                  <tr>
+                    <th scope="row"><%= order.id %></th>
+                    <td><%= order.created_at %></td>
+                    <td><%= link_to "Consult this order", user_order_path(current_user, order), class: "btn btn-primary"%></td>
+                  </tr>
+                <% end %>
+              <% end %>
+            </tbody>
+          </table>
+       <!--  <% end %> -->
+      </div>
+    </div>
+  </div>
+
+</div>
