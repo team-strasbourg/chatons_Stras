@@ -11,7 +11,9 @@ require 'pry'
 Item.destroy_all
 User.destroy_all
 Cart.destroy_all
+Order.destroy_all
 JoinTableCartItem.destroy_all
+JoinTableOrderItem.destroy_all
 
 20.times do
 	Item.create(title:Faker::Quote.robin, description:Faker::Quote.matz, price:Faker::Number.decimal(l_digits: 2), image_url:"item_cat.jpg")
@@ -33,3 +35,17 @@ Cart.all.each do |cart|
   end
 end
 puts 'Carts filled with items'
+
+20.times do
+  Order.create(user: User.all.sample, paid:[true, false].sample)
+end
+puts 'Orders created'
+Order.all.each do |order|
+  rand(1..5).times do
+    JoinTableOrderItem.create(order:order, item: Item.all.sample)
+  end
+end
+puts 'Orders filled'
+
+User.create(email:'admin@admin.com', password:"admin123", admin: true)
+puts 'Admin created'

@@ -1,4 +1,5 @@
 <!-- Footer -->
+<%unless is_admin?%>
 	<section id="section_footer">
 		<footer class="footer">
 			<div class="footer_content">
@@ -75,3 +76,4 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
 		</footer>
 	</section>
+<%end %>
