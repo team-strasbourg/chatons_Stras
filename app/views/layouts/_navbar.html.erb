@@ -1,12 +1,13 @@
-<div class="menu">
+<div class="menu" style="background-image: url(assets/menu.jpg); background-size: cover; opacity: 0.7">
 
   <!-- Navigation -->
-  <div class="menu_nav">
-    <ul>
-      <li><%= link_to "Log-In", new_user_session_path %> / <%= link_to "Sign-Up", new_user_registration_path %> </li>
+  <div class="menu_nav"  >
+    <ul >
       <li><%= link_to "All Products", items_path %></li> 
       <li><a href="#">About</a></li>
       <li><a href="#">Contact</a></li>
+      <li ><%= link_to "Log-In", new_user_session_path %>
+      <!-- <%= link_to "Sign-Up", new_user_registration_path %> --> </li>
     </ul>
   </div>
   <!-- Contact Info -->
@@ -59,7 +60,7 @@
        <!-- </div>  -->
 
       <!-- User -->
-      
+
       <%if user_signed_in? %>
 
         <div class="user"><a href="<%=user_path(current_user) %>"><div><%= image_tag("user.svg", alt: "https://www.flaticon.com/authors/freepik") %></div></a></div>
