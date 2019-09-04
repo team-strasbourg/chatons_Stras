@@ -1,10 +1,12 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
   def index
+    @orders = Order.all
   end
 
   def show
     @order = Order.find(params[:id])
+
   end
 
   def new
@@ -16,10 +18,8 @@ class OrdersController < ApplicationController
       if @order.save
         fill_order
         empty_cart
-        puts "*******************************"
-        puts "inside save"
         flash[:success] = "Order created"
-        redirect_to order_path(@order.id)
+        redirect_to user_order_path(current_user, @order.id)
       else
         flash[:error] = "Order failed to be created"
          redirect_to root_path
@@ -37,6 +37,10 @@ class OrdersController < ApplicationController
   end
 
   def destroy
+    @order = Order.find(params[:id])
+    @order.destroy
+    flash[:success] = "Your order has been deleted!"
+    redirect_to root_path
   end
 
   private
@@ -50,4 +54,5 @@ class OrdersController < ApplicationController
   def empty_cart
     JoinTableCartItem.where(cart: current_user.cart).destroy_all
   end
+
 end

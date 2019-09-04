@@ -15,17 +15,15 @@
 							<%= image_tag(item.image_url, :alt => "search") %>
 						</div>
 						<div class="col-md-10">
-							<h4 class="nomargin">Item n°<%= item.id%></h4>
+							<h4 class="nomargin"><%= link_to "Item n°#{item.id}", item_path(item) %></h4>
 							<p><%= item.description%></p>
 						</div>
 					</div>
 				</td>
 				<td data-th="Price"><%= item.price%>€</td>
 				<td class="actions" data-th="">
-
-				  <%= link_to raw("<i class=\"fa fa-trash-o\"></i>"), item_join_table_cart_item_path(item.id, JoinTableCartItem.find_by(cart: @cart, item:Item.find(item.id)).id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
+					<%= link_to raw("<i class=\"fa fa-trash-o\"></i>"), item_join_table_cart_item_path(item.id, JoinTableCartItem.find_by(cart: @cart, item:Item.find(item.id)).id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
 				</td>
-				
 		  </tr>
 		  <% end %>
 		</tbody>
@@ -38,8 +36,7 @@
 					<strong>Total: <%= @total_price %>€</strong>
 				</td>
 				<td>
-					<%= render 'layouts/transform_to_order' %>
-					<!-- <a class="btn btn-success btn-block" href="#">Checkout</a> -->
+					<%= render 'shared/transform_to_order' %>
 				</td>
 			</tr>
 		</tfoot>

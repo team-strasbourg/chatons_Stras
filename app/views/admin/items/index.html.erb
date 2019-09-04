@@ -1,0 +1,10 @@
+<%= render partial: "admin/shared/index",
+           locals:{resources: @items,
+                   action: 'items',
+                   path_new: new_admin_user_path,
+                   path: "/admin/items/",
+                   edition: true,
+                   title: 'Items',
+                   titles: %w(Title Price Image),
+                   values: %w(title price image_url),
+                   button_new: "New Item"}%>

@@ -1,0 +1,3 @@
+<%if user_signed_in? %>
+	<%= link_to "Delete your order", user_order_path(current_user, @order.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+<% end %>
