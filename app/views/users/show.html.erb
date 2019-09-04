@@ -3,51 +3,53 @@
 </nav>
 
 <div class="container">
+   <h2><strong>Your orders still to be paid</strong></h2>
   <% if @orders.count != nil %>
-    <h2><strong>Your orders still to be paid</strong></h2>
-    <table class="table table-hover table-striped">
+    <table class="table table-hover">
       <thead>
         <tr>
           <th scope="col">Order number</th>
           <th scope="col">Created date of order</th>
-          <th scope="col">Show order</th>
           <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
         <% @orders.each do |order| %>
-        <tr>
-          <th scope="row"><%= order.id %></th>
-          <td><%= order.created_at %></td>
-          <td><%= link_to "Go to this order"</td>
-          <td>@mdo</td>
-        </tr>
+          <% if order.paid == false %>
+            <tr>
+              <th scope="row"><%= order.id %></th>
+              <td><%= order.created_at %></td>
+              <td><%= link_to "Go to this order and pay", user_order_path(current_user, order), class: "btn btn-success"%></td>
+            </tr>
+          <%end%>
         <% end %>
       </tbody>
     </table>
+  <% else %>
+    <h3>You have no orders still to be paid</h3>
   <% end %>
 </div>
 
 <div class="container">
+  <h2><strong>Your orders already paid</strong></h2>
   <% if @orders.count != nil %>
-    <h2><strong>Your orders already paid</strong></h2>
-    <table class="table table-striped">
+    <table class="table table-hover">
       <thead>
         <tr>
           <th scope="col">Order number</th>
           <th scope="col">Created date of order</th>
-          <th scope="col">Last</th>
-          <th scope="col">Handle</th>
+          <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
         <% @orders.each do |order| %>
-        <tr>
-          <th scope="row"><%= order.id %></th>
-          <td><%= order.created_at %></td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
+          <% if order.paid == true %>
+            <tr>
+              <th scope="row"><%= order.id %></th>
+              <td><%= order.created_at %></td>
+              <td><%= link_to "Consult this order", user_order_path(current_user, order), class: "btn btn-primary"%></td>
+            </tr>
+          <% end %>
         <% end %>
       </tbody>
     </table>
