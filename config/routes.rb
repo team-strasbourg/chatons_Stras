@@ -21,12 +21,11 @@ Rails.application.routes.draw do
   resources :join_table_order_items
 
   namespace :admin do
-    root "admin/items#index"
+    root to:"admin/users#index"
     resources :users
     resources :items
     resources :orders
   end
-
-  root "items#index"
+  root to:"items#index"
 
 end
