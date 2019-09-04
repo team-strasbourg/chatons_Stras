@@ -1,4 +1,7 @@
 class Item < ApplicationRecord
+	extend FriendlyId
+  friendly_id :title, use: :slugged
+
 	has_many :join_table_cart_items
 	has_many :carts, through: :join_table_cart_items
 	has_many :join_table_order_items
@@ -15,5 +18,8 @@ class Item < ApplicationRecord
 						numericality:{in: 1.00..1000.00}
 	validates :image_url,
 						presence: true
+
+	friendly_id :title, use: [:slugged, :finders]
+
 
 end
