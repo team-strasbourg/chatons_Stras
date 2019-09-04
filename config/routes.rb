@@ -26,7 +26,9 @@ Rails.application.routes.draw do
   namespace :admin do
     root :to =>"users#index"
     resources :users
-    resources :items
+    resources :items do
+      resources :avatars, only: [:create, :new]
+    end
     resources :orders
   end
 

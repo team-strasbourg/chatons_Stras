@@ -2,6 +2,8 @@ do /home/carsano/Documents/Programmation/THP/09semaine/chatons_stras/bin/bundle 
 Ruby enVironment Manager 1.29.8 (latest) (c) 2009-2017 Michal Papis, Piotr Kuczynski, Wayne E. Seguin
 
                         Prefix Verb   URI Pattern                                                                              Controller#Action
+                   avatars_new GET    /avatars/new(.:format)                                                                   avatars#new
+                avatars_create GET    /avatars/create(.:format)                                                                avatars#create
               new_user_session GET    /users/sign_in(.:format)                                                                 devise/sessions#new
                   user_session POST   /users/sign_in(.:format)                                                                 devise/sessions#create
           destroy_user_session DELETE /users/sign_out(.:format)                                                                devise/sessions#destroy
@@ -91,6 +93,8 @@ edit_item_join_table_cart_item GET    /items/:item_id/join_table_cart_items/:id/
                                PATCH  /admin/users/:id(.:format)                                                               admin/users#update
                                PUT    /admin/users/:id(.:format)                                                               admin/users#update
                                DELETE /admin/users/:id(.:format)                                                               admin/users#destroy
+            admin_item_avatars POST   /admin/items/:item_id/avatars(.:format)                                                  admin/avatars#create
+         new_admin_item_avatar GET    /admin/items/:item_id/avatars/new(.:format)                                              admin/avatars#new
                    admin_items GET    /admin/items(.:format)                                                                   admin/items#index
                                POST   /admin/items(.:format)                                                                   admin/items#create
                 new_admin_item GET    /admin/items/new(.:format)                                                               admin/items#new
