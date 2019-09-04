@@ -26,7 +26,7 @@
                     <%if @item.avatar.attached?%>
                       <%= image_tag @item.avatar, alt: 'avatar' %>
                     <%else %>
-                      <h1>error</h1>
+                      <%= image_tag(@item.image_url, :alt => "Kitty picture") %>
                     <%end%>
                   </li>
 								</ul>
