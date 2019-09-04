@@ -6,4 +6,10 @@ class UserMailer < ApplicationMailer
     @url  = 'https://chatons-stras-staging.herokuapp.com' 
     mail(to: @user.email, subject: 'Bienvenue chez nous !') 
   end
+
+  def send_order(user)
+    @user = user 
+    mail(to: @user.email, subject: 'Ta commande') 
+  end
+
 end
