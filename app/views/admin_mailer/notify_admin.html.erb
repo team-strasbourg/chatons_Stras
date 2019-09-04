@@ -1,0 +1,6 @@
+<h3>Nouvelle commande</h6>
+<p>ID du client: <%=@user.id%></p>
+<p>Nom du client: <%=@user.first_name%> <%=@user.last_name%></p>
+<p>Lien vers sa page profil: <%= link_to "User Page", admin_user_path(@user)%> </p>
+<p>Items de la commande: <%=@order.items.all%></p>
+<p>Lien vers la commande: <%= link_to "Order", admin_order_path(@order) %> </p>
