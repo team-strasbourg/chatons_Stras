@@ -1,8 +1,9 @@
+
 <%if is_admin? %>
   <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap m-0 p-0">
     <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">AdminBoard</a>
     <ul class="navbar-nav px-3">
-      <li><%= link_to "Disconnect", destroy_user_session_path , method: :delete%></li>
+      <li><%= link_to "Disconnect", destroy_user_session_path , method: :delete %></li>
     </ul>
   </nav>
 
@@ -12,17 +13,21 @@
   <!-- Navigation -->
   <div class="menu_nav">
     <ul>
-      <li><%= link_to "Log-In", new_user_session_path %> / <%= link_to "Sign-Up", new_user_registration_path %> </li>
       <li><%= link_to "All Products", items_path %></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Contact</a></li>
+      <br>
+      <li> <%= link_to "About", about_path %></li>
+      <li><%= link_to "Contact Us", contact_path %></li>
+      <li><%= link_to "Terms & Conditions", use_terms_path %></li>
+      <br>
+      <li><%= link_to "Log-In", new_user_session_path %></li>
+      <!-- <%= link_to "Sign-Up", new_user_registration_path %> --> </li>
     </ul>
   </div>
   <!-- Contact Info -->
   <div class="menu_contact">
     <div class="menu_phone d-flex flex-row align-items-center justify-content-start">
       <div><div><%= image_tag("phone.svg", :alt => "https://www.flaticon.com/authors/freepik") %></div></div>
-      <div>+1 912-252-7350</div>
+      <div>+33 141 592 653 589</div>
     </div>
 <!--    <div class="menu_social">
       <ul class="menu_social_list d-flex flex-row align-items-start justify-content-start">
@@ -52,10 +57,11 @@
        <nav class="main_nav">
        <ul class="d-flex flex-row align-items-start justify-content-start">
         <li class="active"><%= link_to "All Products", items_path %></li>
-        <li><a href="#">About</a></li>
+        <li><%= link_to "About", about_path %></li>
 <!--        <li><%= link_to "Sign in", new_user_session_path %></li> -->
 <!--        <li><%= link_to "Sign up", new_user_registration_path %></li> -->
-        <li><a href="#">Contact</a></li>
+        <li><%= link_to "Contact", contact_path %></li>
+        <li><%= link_to "Terms & Conditions", use_terms_path %></li>
         </ul>
         </nav>
     <div class="header_right d-flex flex-row align-items-center justify-content-start ml-auto">
@@ -66,7 +72,9 @@
         <!--    <button class="header_search_button"><%= image_tag("search.png", :alt => "search") %></button>  -->
        <!--   </form>  -->
        <!-- </div>  -->
+
       <!-- User -->
+
       <%if user_signed_in? %>
 
       <div class="dropdown">
@@ -74,8 +82,8 @@
         <div class="user"><a href=""><div><%= image_tag("user.svg", alt: "https://www.flaticon.com/authors/freepik") %></div></a></div>
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" <%= link_to "Profile", user_path(current_user) %>
-        <a class="dropdown-item" <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+        <div class="dropdown-item"> <%= link_to "Profile", user_path(current_user) %> </div>
+        <div class="dropdown-item"> <%= link_to "Log out", destroy_user_session_path, method: :delete %> </div>
         </div>
         </div>
         <div class="cart"><a href="<%= user_cart_path(current_user, current_user.cart.id)%>"><div><%= image_tag("cart.svg", :alt => "https://www.flaticon.com/authors/freepik") %><div class="cart-number-items"><%= current_user.cart.items.length %></div></div></a></div>
@@ -87,16 +95,18 @@
         <div class="user"><a href=""><div><%= image_tag("user.svg", alt: "https://www.flaticon.com/authors/freepik") %></div></a></div>
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" <%= link_to "Log in", new_user_session_path %>
-        <a class="dropdown-item" <%= link_to "Sign up", new_user_registration_path %>
+        <div class="dropdown-item"> <%= link_to "Log in", new_user_session_path %> </div>
+        <div class="dropdown-item"> <%= link_to "Sign up", new_user_registration_path %> </div>
         </div>
         </div>
+
       <%end %>
+
       <!-- Cart -->
       <!-- Phone -->
       <div class="header_phone d-flex flex-row align-items-center justify-content-start">
         <div><a href="#"><div><%= image_tag("phone.svg", :alt => "https://www.flaticon.com/authors/freepik") %></a></div></div>
-        <div>+1 912-252-7350</div>
+        <div>+33 141 592 653 589</div>
       </div>
     </div>
 </header>
