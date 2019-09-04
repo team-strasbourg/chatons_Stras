@@ -7,6 +7,7 @@ module Admin
 
     def show
       @order = Order.find(params[:id])
+      @user = User.find(@order.user_id)
 
     end
 
@@ -24,6 +25,8 @@ module Admin
     end
 
     def destroy
+      puts "#"*60
+      puts params
       @order = Order.find(params[:id])
       unless @order.is_already_paid
         @order.destroy
