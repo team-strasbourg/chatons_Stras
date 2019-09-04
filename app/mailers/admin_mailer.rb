@@ -6,6 +6,6 @@ class AdminMailer < ApplicationMailer
     @user = user
     @order = order
 
-    @mail(to: admin.email, subject: 'Commande nº') 
+    @mail(to: admin.email, subject: "Commande nº #{@order.id}") 
   end
 end
