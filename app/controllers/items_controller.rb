@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
     @items = Item.all
     # REDIRECTION TO THE ADMIN ROOT IF ADMIN
     if user_signed_in? && current_user.admin == true
-      redirect_to admin_root_path(current_user)
+      redirect_to admin_root_path
     end
 
   end

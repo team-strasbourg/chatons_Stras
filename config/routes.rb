@@ -22,8 +22,7 @@ Rails.application.routes.draw do
 
   root :to => "items#index"
   namespace :admin do
-    # root :to =>"users#index"
-    resources :users, action: :index, as: :root
+    root :to =>"users#index"
     resources :users
     resources :items
     resources :orders
