@@ -20,7 +20,9 @@ class ChargesController < ApplicationController
                                        currency: 'usd',
                                    })
     Order.find(params[:order_id]).update(paid: true)
-   redirect_to user_path(current_user)
+    @order = Order.find(params[:order_id])
+    UserMailer.deliver_order(current_user, @order).deliver_now
+    redirect_to user_path(current_user)
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to new_charge_path

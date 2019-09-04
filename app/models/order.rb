@@ -11,6 +11,4 @@ class Order < ApplicationRecord
   def is_already_paid
     self.paid
   end
-
-
 end
