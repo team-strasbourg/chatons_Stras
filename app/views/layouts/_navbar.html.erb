@@ -57,7 +57,9 @@
         <!--    <button class="header_search_button"><%= image_tag("search.png", :alt => "search") %></button>  -->
        <!--   </form>  -->
        <!-- </div>  -->
+
       <!-- User -->
+      
       <%if user_signed_in? %>
 
         <div class="user"><a href="<%=user_path(current_user) %>"><div><%= image_tag("user.svg", alt: "https://www.flaticon.com/authors/freepik") %></div></a></div>
