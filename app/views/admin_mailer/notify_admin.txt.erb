@@ -1,0 +1,8 @@
+Nouvelle commande
+
+~~~~~~~~~~~~~~~~~~~
+ID du client: <%=@user.id%>
+Nom du client: <%=@user.first_name%> <%=@user.last_name%>
+Lien vers sa page profil: <%= link_to "User Page", admin_user_url(@user)%> 
+Nombre d'items dans la commande: <%=@order.items.length%>
+Lien vers la commande: <%= link_to "Order", admin_order_url(@order) %>
