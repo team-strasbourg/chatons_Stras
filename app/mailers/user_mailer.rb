@@ -6,4 +6,19 @@ class UserMailer < ApplicationMailer
     @url  = 'https://chatons-stras-staging.herokuapp.com' 
     mail(to: @user.email, subject: 'Bienvenue chez nous !') 
   end
+
+  def deliver_order(user, order)
+    @jtoi_array = JoinTableOrderItem.where(order_id:order.id).to_a
+    @images = []
+    @jtoi_array.each do |o|
+      @image = o.item.image_url
+      @images << @image
+      attachments.inline["#{@image}"] = File.read("app/assets/images/#{@image}")
+    end
+    
+    @user = user 
+
+    mail(to: @user.email, subject: 'Ta commande') 
+  end
+
 end
