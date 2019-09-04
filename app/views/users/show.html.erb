@@ -2,76 +2,54 @@
   <h4 class="navbar-brand col-sm-3 col-md-2 mr-0">My profile section</h4>
 </nav>
 
-<div class="container-fluid">
-  <div class="row">
-    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-      <div class="sidebar-sticky">
-        <ul class="nav flex-column">
-          <li class="nav-item">
-            <a class="nav-link" href="<%= user_path(current_user)%>">
-              <span data-feather="shopping-cart"></span>
-              My profile
-            </a>
-          </li>
-          <li class="nav-item">
-
-            <a class="nav-link" href="#">
-
-              <span data-feather="file"></span>
-              My orders still to be paid
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file"></span>
-              My orders history
-            </a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-
-    <div class="col-md-8"> 
-     
-      <main role="main" class="col-md-10 ml-sm-auto col-lg-10 pt-3 px-4">
- 
-        <% if @orders.count != nil %>
-          <h2>All your orders</h2>
-
-          <% @orders.each do |order| %>
-
-            <table class="table">
-              <thead class="thead-dark">
-                <tr>
-                  <th class="col-md-12">Order n°<%= order.id%></th>
-                </tr>
-              </thead>
-              <tbody>
-                <% order.items.each do |item| %>
-                  <tr>  
-                    <td data-th="Your order">
-                      <div class="row">
-                        <div class="col-md-2">
-                          <%= image_tag(item.image_url, :alt => "search") %>
-                        </div>
-                        <div class="col-md-8">
-                          <h4 class="nomargin">Item n°<%= item.id%></h4>
-                          <p><%= item.description%></p>
-                        </div>
-                        <div class="col-md-2">
-                          <%= item.price%>€
-                        </div>
-                      </div>
-                    </td>
-             
-                  </tr>
-                <% end %>
-              </tbody>
-            </table>
-          <% end %>
+<div class="container">
+  <% if @orders.count != nil %>
+    <h2><strong>Your orders still to be paid</strong></h2>
+    <table class="table table-hover table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Order number</th>
+          <th scope="col">Created date of order</th>
+          <th scope="col">Show order</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @orders.each do |order| %>
+        <tr>
+          <th scope="row"><%= order.id %></th>
+          <td><%= order.created_at %></td>
+          <td><%= link_to "Go to this order"</td>
+          <td>@mdo</td>
+        </tr>
         <% end %>
-      </main>
-    </div>
-  </div>
+      </tbody>
+    </table>
+  <% end %>
 </div>
 
+<div class="container">
+  <% if @orders.count != nil %>
+    <h2><strong>Your orders already paid</strong></h2>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Order number</th>
+          <th scope="col">Created date of order</th>
+          <th scope="col">Last</th>
+          <th scope="col">Handle</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @orders.each do |order| %>
+        <tr>
+          <th scope="row"><%= order.id %></th>
+          <td><%= order.created_at %></td>
+          <td>Otto</td>
+          <td>@mdo</td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>
