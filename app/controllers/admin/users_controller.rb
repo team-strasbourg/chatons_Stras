@@ -3,7 +3,7 @@ module Admin
 
 
     def index
-      @users = User.all
+      @users = User.all.sort_by{|user| user.admin ? 0 : 1}
     end
 
     def show
@@ -12,10 +12,18 @@ module Admin
     end
 
     def new
+      @user = User.new
     end
 
     def create
-
+      @user = User.new(email: params[:user][:email], password: params[:user][:password])
+      if @user.save
+        Cart.create(user: @user)
+        flash[:success]='User created'
+        redirect_to admin_root_path
+      else
+        redirect_to new_admin_user_path
+      end
     end
 
     def edit
@@ -25,7 +33,7 @@ module Admin
     def update
       @user = User.find(params[:id])
       if @user.update(user_params)
-        redirect_to user_path(@user.id)
+        redirect_to admin_root_path
       else
         render 'edit'
       end
@@ -41,7 +49,7 @@ module Admin
     private
 
     def user_params
-      params[:user].permit(:first_name, :last_name, :description)
+      params[:user].permit(:first_name, :last_name, :description, :admin)
     end
 
 

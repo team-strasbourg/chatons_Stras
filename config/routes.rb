@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'avatars/new'
+  get 'avatars/create'
   devise_for :users, controllers: {
       registrations: 'users/registrations'
   }
@@ -20,12 +22,23 @@ Rails.application.routes.draw do
 
   resources :join_table_order_items
 
+  root :to => "items#index"
   namespace :admin do
-    root to:"admin/users#index"
+    root :to =>"users#index"
     resources :users
-    resources :items
+    resources :items do
+      resources :avatars, only: [:create, :new]
+    end
     resources :orders
   end
-  root to:"items#index"
+
+
+
+
+# routes for static_pages :
+
+  get "/contact", to: "static_pages#contact", :as => 'contact'
+  get "/about", to: "static_pages#about", :as => 'about'
+  get "/use_terms", to: "static_pages#terms_of_use", :as => 'use_terms'
 
 end
