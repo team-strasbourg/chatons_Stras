@@ -1,1 +1,6 @@
 Salut, ta commande est bien passée
+Voici les photos commandées:
+
+<%@images.each do |image|%>
+<%= image_tag attachments[image].url, style:"max-width:200px;" %>
+<%end%>
