@@ -7,7 +7,7 @@ module Admin
     end
 
     def show
-      @item = Item.find(params[:id])
+      @item = Item.friendly.find(params[:id])
     end
 
     def new
