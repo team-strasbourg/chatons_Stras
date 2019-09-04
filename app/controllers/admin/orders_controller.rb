@@ -18,11 +18,6 @@ module Admin
     end
 
     def edit
-      @order = Order.find(params[:id])
-      if @order.is_already_paid
-        flash[:error] = 'You can\'t edit a paid order'
-        redirect_to admin_orders_path
-      end
     end
 
     def update
