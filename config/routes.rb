@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'avatars/new'
+  get 'avatars/create'
   devise_for :users, controllers: {
       registrations: 'users/registrations'
   }
@@ -24,7 +26,9 @@ Rails.application.routes.draw do
   namespace :admin do
     root :to =>"users#index"
     resources :users
-    resources :items
+    resources :items do
+      resources :avatars, only: [:create, :new]
+    end
     resources :orders
   end
 
