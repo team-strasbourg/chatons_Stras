@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 module Admin
   class ItemsController < ApplicationController
     def index
-      @items = Item.all.sort_by{|item| item.id}
+      @items = Item.all.sort_by(&:id)
     end
 
     def show
@@ -9,9 +11,22 @@ module Admin
     end
 
     def new
+      @item = Item.new
     end
 
     def create
+      my_params=params[:item]
+      @item = Item.new(title: my_params[:title],
+                       description: my_params[:description],
+                       price: my_params[:price],
+                       image_url: my_params[:image_url])
+      if @item.save
+        flash[:success] = 'Item created'
+        redirect_to admin_items_path
+      else
+        flash[:error]=@item.errors.messages
+        render'new'
+      end
     end
 
     def edit
@@ -29,7 +44,7 @@ module Admin
 
     def destroy
       Item.destroy(params[:id])
-      flash[:success] = "Item successfully deleted"
+      flash[:success] = 'Item successfully deleted'
       redirect_to admin_items_path
     end
 
