@@ -23,6 +23,7 @@ class ChargesController < ApplicationController
     @order.update(paid: true)
     UserMailer.deliver_order(current_user, @order).deliver_now
     AdminMailer.notify_admin(current_user, @order).deliver_now
+    flash[:success] = 'Order paid'
     redirect_to items_path
   rescue Stripe::CardError => e
     flash[:error] = e.message
