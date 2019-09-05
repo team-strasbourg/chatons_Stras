@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Admin
   class OrdersController < ApplicationController
     before_action :authenticate_user!
@@ -12,28 +14,15 @@ module Admin
 
     end
 
-    def new
-    end
-
-    def create
-
-    end
-
-    def edit
-    end
-
-    def update
-    end
-
     def destroy
       @order = Order.find(params[:id])
-      unless @order.is_already_paid
-        @order.destroy
-        flash[:success] = "Your order has been deleted!"
-      else
+      if @order.is_already_paid
         flash[:error] = 'You can\'t destroy a paid order'
+      else
+        @order.destroy
+        flash[:success] = 'Your order has been deleted!'
       end
-        redirect_to admin_orders_path
+      redirect_to admin_orders_path
     end
 
     private 
