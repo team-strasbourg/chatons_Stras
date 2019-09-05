@@ -1,5 +1,6 @@
 module Admin
   class AvatarsController < ApplicationController
+    before_action :only_admin
     def new
       @item = User.find(params[:item_id])
     end

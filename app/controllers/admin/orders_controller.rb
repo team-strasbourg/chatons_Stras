@@ -1,6 +1,7 @@
 module Admin
   class OrdersController < ApplicationController
     before_action :authenticate_user!
+    before_action :only_admin
     def index
       @orders = Order.all.sort_by{|order| order.paid ? 1 : 0} #SORT BY TRUE FALSE
     end

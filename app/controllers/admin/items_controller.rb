@@ -2,6 +2,7 @@
 
 module Admin
   class ItemsController < ApplicationController
+    before_action :only_admin
     def index
       @items = Item.all.sort_by(&:id)
     end
