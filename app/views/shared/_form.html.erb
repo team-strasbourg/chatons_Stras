@@ -141,9 +141,17 @@
               <%= f.label :avatar, "Avatar" %><br />
               <%=f.file_field :avatar, class:"form-control-file"%><br>
             </div>
+<!--DEVISE FORGOT PASSWORD-->
+            <%when 'new_password'%>
+            <div class="field">
+              <%= f.label :email %><br />
+              <%= f.email_field :email, autofocus: true, autocomplete: "email" , class:"form-control"%><br>
+            </div>
+
           <%else %>
             <h1>Error</h1>
         <%end %>
+
 
 
 
