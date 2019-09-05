@@ -14,7 +14,7 @@
   </head>
   <header>
 
-     <%= render 'layouts/navbar'%>
+     <%= render 'layouts/navbar' unless @disable_nav %>
 
   </header>
 
@@ -28,7 +28,7 @@
   <%else %>
     <body style="padding-top: 80px;">
       <%= yield %>
-        <%= render 'layouts/footer' %>
+        <%= render 'layouts/footer' unless @disable_footer %>
   <%end %>
   </body>
 </html>
