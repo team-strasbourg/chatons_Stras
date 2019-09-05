@@ -50,3 +50,10 @@
   box-shadow: none;
 }
 
+#price-show:hover{
+    background: none;
+}
+#price-show, #cart-show{
+    border: none;
+}
+
