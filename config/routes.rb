@@ -20,7 +20,9 @@ Rails.application.routes.draw do
 
   resources :join_table_order_items
 
-  root :to => "items#index"
+  root :to => "static_pages#welcome_page"
+
+
   namespace :admin do
     root :to =>"users#index"
     resources :users
@@ -38,8 +40,6 @@ Rails.application.routes.draw do
   get "/contact", to: "static_pages#contact", :as => 'contact'
   get "/about", to: "static_pages#about", :as => 'about'
   get "/use_terms", to: "static_pages#terms_of_use", :as => 'use_terms'
-  get "/welcome", to: "static_pages#welcome_page", :as => 'welcome'
-
   get '/profile',    to: 'users#show'
 
 end
