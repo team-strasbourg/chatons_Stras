@@ -6,7 +6,6 @@
       <li><%= link_to "Disconnect", destroy_user_session_path , method: :delete %></li>
     </ul>
   </nav>
-
 <%else %>
 
   <div class="menu" style="background: url(/assets/ham_menu.jpg); background-size: cover;">
@@ -31,14 +30,11 @@
     <div class="menu_contact">
         <div class="text-white">Team#Strasbourg,  +33 141 592 653 589</div>
       </div>
-    </div>
   </div>
-
   <header class="header">
     <div class="header_overlay"></div>
     <div class="header_content d-flex flex-row align-items-center justify-content-start">
-
-          <div class="d-flex flex-row align-items-center justify-content-start">
+      <div class="d-flex flex-row align-items-center justify-content-start">
             <div><%= link_to items_path do %>
               <%= image_tag("gitmiaou.png", :alt => "Accueil")%>
             <% end %>
@@ -47,31 +43,43 @@
               <%= link_to "Little Kitten", items_path, :style => "color: #4a4a4a;font-weight:700;font-size:35px;padding-left:10px;" %>
             </div>
           </div>
-      <div class="hamburger"><i class="fa fa-bars" aria-hidden="true"></i></div>
-        <nav class="main_nav">
-        <ul class="d-flex flex-row align-items-start justify-content-start">
-          <li class="active"><%= link_to "All Products", items_path %></li>
-          <li><%= link_to "About", about_path %></li>
-          <li><%= link_to "Contact", contact_path %></li>
-          <li><%= link_to "Terms & Conditions", use_terms_path %></li>
+      <div class="hamburger">
+        <i class="fa fa-bars" aria-hidden="true">
+
+        </i>
+      </div>
+      <nav class="main_nav">
+          <ul class="d-flex flex-row align-items-start justify-content-start">
+            <li class="active"><%= link_to "All Products", items_path %></li>
+            <li><%= link_to "About", about_path %></li>
+            <li><%= link_to "Contact", contact_path %></li>
+            <li><%= link_to "Terms & Conditions", use_terms_path %></li>
           </ul>
-          </nav>
+        </nav>
       <div class="header_right d-flex flex-row align-items-center justify-content-start ml-auto">
 
         <!-- User -->
-
         <%if user_signed_in? %>
-
         <div class="dropdown">
           <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top:20px">
-          <div class="user"><a href=""><div><%= image_tag("user.svg", alt: "https://www.flaticon.com/authors/freepik") %></div></a></div>
+            <div class="user">
+              <a href="">
+                <div>
+                  <%= image_tag("user.svg", alt: "https://www.flaticon.com/authors/freepik") %>
+                </div>
+              </a>
+            </div>
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <div class="dropdown-item"> <%= link_to "Profile", user_path(current_user) %> </div>
-          <div class="dropdown-item"> <%= link_to "Log out", destroy_user_session_path, method: :delete %> </div>
+            <div class="dropdown-item">
+              <%= link_to "Profile", user_path(current_user) %>
+            </div>
+            <div class="dropdown-item">
+              <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+            </div>
           </div>
-          </div>
-          <div class="cart">
+        </div>
+        <div class="cart">
             <a href="<%= user_cart_path(current_user, current_user.cart.id)%>">
               <div>
                 <%= image_tag("cart.svg", :alt => "https://www.flaticon.com/authors/freepik") %>
@@ -82,23 +90,32 @@
             </a>
           </div>
 
-
         <%else%>
         <div class="dropdown">
           <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top:20px">
-          <div class="user"><a href=""><div><%= image_tag("user.svg", alt: "https://www.flaticon.com/authors/freepik") %></div></a></div>
+            <div class="user">
+            <a href="">
+              <div>
+                <%= image_tag("user.svg", alt: "https://www.flaticon.com/authors/freepik") %>
+              </div>
+            </a>
+          </div>
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <div class="dropdown-item"> <%= link_to "Log in", new_user_session_path %> </div>
-          <div class="dropdown-item"> <%= link_to "Sign up", new_user_registration_path %> </div>
+            <div class="dropdown-item"> <%= link_to "Log in", new_user_session_path %></div>
+            <div class="dropdown-item"> <%= link_to "Sign up", new_user_registration_path %> </div>
           </div>
-          </div>
+        </div>
 
         <%end %>
 
         <!-- Phone -->
         <div class="header_phone d-flex flex-row align-items-center justify-content-start">
-          <div><div><%= image_tag("phone.svg", :alt => "https://www.flaticon.com/authors/freepik") %></div></div>
+          <div>
+            <div>
+              <%= image_tag("phone.svg", :alt => "https://www.flaticon.com/authors/freepik") %>
+            </div>
+          </div>
           <div>+33 141 592 653 589</div>
         </div>
       </div>
