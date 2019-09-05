@@ -43,7 +43,7 @@ module Admin
       @user = User.find(params[:id])
 
       if @user.admin != true
-        @user.destroy(params[:id])
+        @user.destroy
         flash[:success] = "User successfully deleted"
       else
         flash[:error] = "You can't destroy a admin user"
