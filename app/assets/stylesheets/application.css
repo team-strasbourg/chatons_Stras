@@ -24,6 +24,10 @@
 
  */
 
+.menu {
+	background-image: url(assets/ham_menu.jpg); background-size: cover;
+}
+
   body {
    display: flex;
    flex-direction: column;
@@ -39,8 +43,10 @@
  }
 
 
+
 #dropdownMenuButton:focus,
 #dropdownMenuButton:focus:active {
   outline: none;
   box-shadow: none;
 }
+
