@@ -1,5 +1,6 @@
 module Admin
   class UsersController < ApplicationController
+    before_action :only_admin
 
 
     def index
@@ -56,6 +57,13 @@ module Admin
 
     def user_params
       params[:user].permit(:first_name, :last_name, :description, :admin)
+    end
+
+    def only_admin
+      unless user_signed_in? && current_user.admin == true
+        flash[:danger] = 'You\'re not allowed on this page'
+        redirect_to root_path
+      end
     end
 
 

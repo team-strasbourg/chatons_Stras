@@ -37,3 +37,10 @@
  #section_footer {
    padding-top: 100px;
  }
+
+
+#dropdownMenuButton:focus,
+#dropdownMenuButton:focus:active {
+  outline: none;
+  box-shadow: none;
+}
