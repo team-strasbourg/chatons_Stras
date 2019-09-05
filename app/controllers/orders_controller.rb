@@ -27,10 +27,10 @@ class OrdersController < ApplicationController
         redirect_to user_order_path(current_user, @order.id)
       else
         flash[:error] = "Order failed to be created"
-         redirect_to root_path
+         redirect_to items_path
       end
     else 
-      redirect_to root_path
+      redirect_to items_path
      
     end
   end
