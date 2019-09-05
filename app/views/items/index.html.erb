@@ -16,8 +16,10 @@
      <div class="carousel-item active">
        <div><%= image_tag("banner_1.jpg", class: "d-block w-100", :alt => "First slide") %></div>
        <div class="carousel-caption d-none d-md-block ">
+
 		<h1 style=" color: white; text-shadow: 3px 3px 10px black; text-align: center;">Welcome to Little Kitten !</h1> 
 	   <h3>A cute website full of cute pictures of even cuter kitten ! </h3> 
+
   </div>
   	</div>
     <div class="carousel-item">
@@ -52,7 +54,7 @@
 				</div>
 
 				<div class="row products_row">
-					
+
 					<!-- Product -->
 
 					<% @items.each do |item| %>
@@ -71,7 +73,7 @@
 								<div class="product_info d-flex flex-row align-items-start justify-content-start">
 									<div>
 										<div>
-											<div class="product_name"><a href="product.html"><%= link_to item.title, item_path(item.id) %></a></div>
+											<div class="product_name"><a href="product.html"><%= link_to item.title, item_path(item.slug) %></a></div>
 
 											<div class="product_category">In <a href="category.html">Category</a></div>
 										</div>
@@ -85,7 +87,7 @@
 								<div class="product_buttons">
 									<div class="text-right d-flex flex-row align-items-center justify-content-start">
 
-											<div><%= link_to raw('<div class="product_button product_fav text-center d-flex flex-column align-items-center justify-content-center ">Details</div>'), item_path(item.id), class:'product_button product_fav text-center d-flex flex-column align-items-center justify-content-center', style:'height:100%' %></div>
+											<div><%= link_to raw('<div class="product_button product_fav text-center d-flex flex-column align-items-center justify-content-center ">Details</div>'), item_path(item.slug), class:'product_button product_fav text-center d-flex flex-column align-items-center justify-content-center', style:'height:100%' %></div>
 
                     <div class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
                       <%= render partial:'button_add_to_cart', locals:{item: item} %>
@@ -96,7 +98,7 @@
 						</div>
 					</div>
 					<% end %>
-					
+
 
 				</div>
 				<div class="row load_more_row">
@@ -113,7 +115,7 @@
 		<div class="features">
 			<div class="container">
 				<div class="row">
-					
+
 					<!-- Feature -->
 					<div class="col-lg-4 feature_col">
 						<div class="feature d-flex flex-row align-items-start justify-content-start">
