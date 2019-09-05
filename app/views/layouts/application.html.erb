@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>ChatonsStras</title>
     <%= csrf_meta_tags %>
@@ -25,10 +25,11 @@
   <%if is_admin? %>
     <body class="justify-content-start">
       <%= render 'layouts/admin_nav' %>
+    </body>
   <%else %>
     <body style="padding-top: 80px;">
       <%= yield %>
         <%= render 'layouts/footer' unless @disable_footer %>
-  <%end %>
-  </body>
+    </body>
+<%end %>
 </html>
