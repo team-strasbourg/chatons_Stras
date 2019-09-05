@@ -61,7 +61,7 @@
 					<div class="col-xl-4 col-md-6">
 						<div class="product" style="width: 350px; ">
 							
-							<div class="product_image_container" style="height: 400px; overflow: hidden; display: flex; justify-content: center; align-items: center; border-top: solid 2px lightgray;; border-left: solid 2px lightgray; ; border-right: solid 2px lightgray; ">
+							<div class="product_image_container" style="height: 400px; overflow: hidden; display: flex; justify-content: center; align-items: center; border-top: solid 1px lightgray;; border-left: solid 1px lightgray; ; border-right: solid 1px lightgray; ">
 
                 <%if item.avatar_attached?%>
      
@@ -78,7 +78,7 @@
 										<div>
 											<div class="product_name"><a href="product.html"><%= link_to item.title, item_path(item) %></a></div>
 
-											<div class="product_category">In Category : potrait</div>
+											<div class="product_category">In Category : Cute cat</div>
 										</div>
 									</div>
 									<div class="ml-auto text-right">
@@ -107,11 +107,6 @@
 
 
 				</div>
-				<div class="row load_more_row">
-					<div class="col">
-						<div class="button load_more ml-auto mr-auto"><a href="#">load more</a></div>
-					</div>
-				</div>
 			</div>
 		</div>
 
@@ -126,7 +121,7 @@
 					<div class="col-lg-4 feature_col">
 						<div class="feature d-flex flex-row align-items-start justify-content-start">
 							<div class="feature_left">
-								<div class="feature_icon"><img src="assets/icon_1.svg" alt=""></div>
+								<div class="feature_icon"><%= image_tag("/assets/icon_1.svg", alt: "")%></div>
 							</div>
 							<div class="feature_right d-flex flex-column align-items-start justify-content-center">
 								<div class="feature_title">Fast Secure Payments</div>
@@ -138,7 +133,7 @@
 					<div class="col-lg-4 feature_col">
 						<div class="feature d-flex flex-row align-items-start justify-content-start">
 							<div class="feature_left">
-								<div class="feature_icon ml-auto mr-auto"><img src="assets/icon_2.svg" alt=""></div>
+								<div class="feature_icon ml-auto mr-auto"><%= image_tag("/assets/icon_2.svg", alt: "")%></div>
 							</div>
 							<div class="feature_right d-flex flex-column align-items-start justify-content-center">
 								<div class="feature_title">Premium Products</div>
@@ -150,7 +145,7 @@
 					<div class="col-lg-4 feature_col">
 						<div class="feature d-flex flex-row align-items-start justify-content-start">
 							<div class="feature_left">
-								<div class="feature_icon"><img src="assets/icon_3.svg" alt=""></div>
+								<div class="feature_icon"><%= image_tag("/assets/icon_3.svg", alt: "")%></div>
 							</div>
 							<div class="feature_right d-flex flex-column align-items-start justify-content-center">
 								<div class="feature_title">Free Delivery</div>
