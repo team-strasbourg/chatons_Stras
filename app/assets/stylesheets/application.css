@@ -24,6 +24,10 @@
 
  */
 
+.menu {
+	background-image: url(assets/ham_menu.jpg); background-size: cover;
+}
+
   body {
    display: flex;
    flex-direction: column;
@@ -37,3 +41,16 @@
  #section_footer {
    padding-top: 100px;
  }
+
+
+
+
+
+
+
+
+
+
+
+
+
