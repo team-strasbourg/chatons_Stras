@@ -6,7 +6,12 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-
+    @items = Hash.new(0)
+    @order.items.each do |item|
+      @items[item] += 1
+    end
+    @total_quantity = @order.items.count
+    @total_price = @order.total_price
   end
 
   def new
