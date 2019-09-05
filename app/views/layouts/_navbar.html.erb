@@ -20,8 +20,11 @@
         <li><%= link_to "Contact Us", contact_path,  class: "text-white" %></li>
         <li><%= link_to "Terms & Conditions", use_terms_path, class: "text-white" %></li>
         <br>
-        <li><%= link_to "Log In", new_user_session_path,  class: "text-white " %></li>
-
+      <% if user_signed_in? %>
+        <li><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "text-white" %></li>
+      <% else %>
+        <li><%= link_to "Log In /", new_user_session_path,  class: "text-white " %> <%= link_to "Sign up", new_user_registration_path, class: "text-white" %></li>
+      <% end %>
       </ul>
     </div>
     <!-- Contact Info -->
