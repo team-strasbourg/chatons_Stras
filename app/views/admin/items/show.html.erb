@@ -43,6 +43,8 @@
               <dl><%=@item.description %></dl>
               <dt>Price</dt>
               <dl><%=@item.price %></dl>
+              <br>
+              <%= link_to 'Destroy',admin_item_path(@item), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
             </dl>
 					</div>
 				</div>
