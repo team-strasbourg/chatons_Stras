@@ -26,7 +26,7 @@
 					</div>
 				</td>
         <td><%= quantity %></td>
-				<td data-th="Price"><%= item.price * quantity%>€</td>
+				<td data-th="Price"><%= (item.price * quantity *100).round / 100.0%>€</td>
 				<td class="actions" data-th="">
 					<%= link_to raw("<i class=\"fa fa-trash-o\"></i>"), item_join_table_cart_item_path(item.id, JoinTableCartItem.find_by(cart: @cart, item:Item.find(item.id)).id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
 				</td>
