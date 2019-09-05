@@ -17,7 +17,7 @@ class JoinTableCartItemsController < ApplicationController
       respond_to do |format|
         format.html {
           flash[:success] = 'Item added to the cart'
-          redirect_to root_path
+          redirect_to items_path
         }
         format.js { }
       end
