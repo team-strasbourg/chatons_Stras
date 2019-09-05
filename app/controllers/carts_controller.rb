@@ -16,6 +16,7 @@ class CartsController < ApplicationController
     current_user.cart.items.each do |item|
       @items[item] += 1
     end
+    @total_quantity = @cart.items.count
     @total_price = @cart.total_price
   end
 
