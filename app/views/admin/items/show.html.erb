@@ -36,21 +36,16 @@
 
 					<!-- Product Info -->
 					<div class="col-lg-6 product_col">
-						<div class="product_info">
-							<br><br><br>
-							<h2><%= @item.title %></h2>
-							</div>
-							<div class="product_text">
-								<p><%= @item.description %></p>
-							</div>
-							<div class="product_buttons">
-								<div class="text-right d-flex flex-row align-items-start justify-content-start">
-									<div class="product_fav text-center d-flex flex-column align-items-center justify-content-center">
-										<div><div><strong><%= @item.price %> €</strong><div></div></div></div>
-									</div>
-								</div>
-							</div>
-						</div>
+            <dl>
+              <dt>Title</dt>
+              <dl><%=@item.title %></dl>
+              <dt>Description</dt>
+              <dl><%=@item.description %></dl>
+              <dt>Price</dt>
+              <dl><%=@item.price %></dl>
+              <br>
+              <%= link_to 'Destroy',admin_item_path(@item), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+            </dl>
 					</div>
 				</div>
 			</div>
