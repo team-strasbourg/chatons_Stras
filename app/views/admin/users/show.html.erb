@@ -80,6 +80,7 @@
                 <tr>
                   <th scope="row"><%= order.id %></th>
                   <td><%= order.created_at %></td>
+                  <td><%= link_to "Consult this order", admin_order_path(order), class: "btn btn-primary"%></td>
                 </tr>
               <%end%>
             <% end %>
