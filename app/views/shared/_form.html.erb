@@ -55,25 +55,25 @@
           <%when 'edit_user'%>
             <div class="form-group">
               <%= f.label :first_name %><br />
-              <%= f.text_field :first_name, autofocus: true, placeholder: current_user.first_name %>
+              <%= f.text_field :first_name, autofocus: true, placeholder: current_user.first_name, class: "form-control"  %>
             </div>
 
             <div class="form-group">
               <%= f.label :last_name %><br />
-              <%= f.text_field :last_name, autofocus: true, placeholder: current_user.last_name %>
+              <%= f.text_field :last_name, autofocus: true, placeholder: current_user.last_name, class: "form-control" %>
             </div>
 
             <div class="form-group">
               <%= f.label :description %><br />
-              <%= f.text_area :description, autofocus: true, placeholder: current_user.description %>
+              <%= f.text_area :description, autofocus: true, placeholder: current_user.description, class: "form-control"  %>
             </div>
 
             <% if is_admin? %>
               <div class="form-group">
-                <%= f.radio_button(:admin, true,autocomplete: :admin)  %>
-                <%= f.label(:admin, "True") %>
-                <%= f.radio_button(:admin, false,autocomplete: :admin) %>
-                <%= f.label(:admin, "False") %>
+                <%= f.radio_button(:admin, true,autocomplete: :admin, class:"form-check-label" ) %>
+                <%= f.label(:admin, "True", class:"form-check-input" )%>
+                <%= f.radio_button(:admin, false,autocomplete: :admin, class:"form-check-label") %>
+                <%= f.label(:admin, "False", class:"form-check-input" )%>
               </div>
             <%end %>
 
