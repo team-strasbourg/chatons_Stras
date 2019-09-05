@@ -1,10 +1,6 @@
 class CartsController < ApplicationController
 
-  before_action :authenticate_user! 
-
-  def index
-
-  end
+  before_action :authenticate_user!
 
   def show
     @cart = Cart.find(params[:id])
@@ -19,27 +15,5 @@ class CartsController < ApplicationController
     @total_quantity = @cart.items.count
     @total_price = @cart.total_price
   end
-
-  def new
-
-  end
-
-  def create
-
-  end
-
-  def edit
-
-  end
-
-  def update
-
-  end
-
-  def destroy
-
-  end
-
-
-  private
 end
+
