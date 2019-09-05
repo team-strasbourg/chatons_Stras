@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'avatars/new'
-  get 'avatars/create'
   devise_for :users, controllers: {
       registrations: 'users/registrations'
   }
@@ -23,6 +21,8 @@ Rails.application.routes.draw do
   resources :join_table_order_items
 
   root :to => "static_pages#welcome_page"
+
+
   namespace :admin do
     root :to =>"users#index"
     resources :users

@@ -44,13 +44,9 @@
 
 
 
-
-
-
-
-
-
-
-
-
+#dropdownMenuButton:focus,
+#dropdownMenuButton:focus:active {
+  outline: none;
+  box-shadow: none;
+}
 
