@@ -1,6 +1,6 @@
 
 <div class="container d-flex justify-content-center align-items-center">
-  <div class="row">
+  <div class="row", style="margin-top:50px">
     <div class="col-md-12 d-flex flex-column justify-content-center align-items-center">
 
       <%= form_for(resource, url: path, method: method) do |f| %>
@@ -28,8 +28,8 @@
 
           <% if devise_mapping.rememberable? %>
             <div class="form-group">
-              <%= f.check_box :remember_me %>
-              <%= f.label :remember_me %>
+              <%= f.check_box :remember_me%><br>
+              <%= f.label :remember_me%>
             </div>
           <% end %>
 
@@ -70,10 +70,10 @@
 
             <% if is_admin? %>
               <div class="form-group">
-                <%= f.radio_button(:admin, true,autocomplete: :admin, class:"form-check-label" ) %>
-                <%= f.label(:admin, "True", class:"form-check-input" )%>
-                <%= f.radio_button(:admin, false,autocomplete: :admin, class:"form-check-label") %>
-                <%= f.label(:admin, "False", class:"form-check-input" )%>
+                <%= f.radio_button(:admin, true,autocomplete: :admin) %>
+                <%= f.label(:admin, "True")%>
+                <%= f.radio_button(:admin, false,autocomplete: :admin) %>
+                <%= f.label(:admin, "False")%>
               </div>
             <%end %>
 
