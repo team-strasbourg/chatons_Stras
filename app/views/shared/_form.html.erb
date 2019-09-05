@@ -102,12 +102,12 @@
           <%when 'edit_item' %>
             <div class="form-group">
               <%= f.label :title %><br />
-              <%= f.text_field :title, placeholder: @item.title %>
+              <%= f.text_field :title, placeholder: @item.title, class:"form-control"  %>
             </div>
 
             <div class="form-group">
               <%= f.label :description %><br />
-              <%= f.text_area :description, placeholder: @item.description %>
+              <%= f.text_area :description, placeholder: @item.description,class:"form-control"  %>
             </div>
 
             <div class="form-group">
