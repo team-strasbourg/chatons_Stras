@@ -36,8 +36,6 @@ module Admin
     end
 
     def update
-      puts "#"*60
-      puts params
       @item = Item.find(params[:id])
       if @item.update(item_params)
         redirect_to admin_items_path
@@ -47,7 +45,8 @@ module Admin
     end
 
     def destroy
-      Item.destroy(params[:id])
+      @item = Item.friendly.find(params[:id])
+      @item.destroy
       flash[:success] = 'Item successfully deleted'
       redirect_to admin_items_path
     end

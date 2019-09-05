@@ -19,7 +19,7 @@ JoinTableOrderItem.destroy_all
   Item.create(title:Faker::Quote.robin,
               description:Faker::Quote.matz,
               price:Faker::Number.decimal(l_digits: 2),
-              image_url: ['item_cat.jpg', 'item_cat2.jpg', 'chaton_2.jpg', 'chaton_1.jpg', 'item_cat3'].sample)
+              image_url: ['item_cat.jpg', 'item_cat2.jpg', 'chaton_2.jpg', 'chaton_1.jpg', 'item_cat3.jpg', 'item_cat4.jpg', 'item_cat5.jpg', 'item_cat6.jpg'].sample)
 end
 Item.find_each(&:save)
 puts 'Items created'
