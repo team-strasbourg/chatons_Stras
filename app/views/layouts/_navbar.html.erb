@@ -8,7 +8,9 @@
   </nav>
 
 <%else %>
+
 <div class="menu" style="background-image: url(assets/ham_menu.jpg); background-size: cover;">
+
 
   <!-- Navigation -->
   <div class="menu_nav">
@@ -84,7 +86,16 @@
         <div class="dropdown-item"> <%= link_to "Log out", destroy_user_session_path, method: :delete %> </div>
         </div>
         </div>
-        <div class="cart"><a href="<%= user_cart_path(current_user, current_user.cart.id)%>"><div><%= image_tag("cart.svg", :alt => "https://www.flaticon.com/authors/freepik") %><div class="cart-number-items"><%= current_user.cart.items.length %></div></div></a></div>
+        <div class="cart">
+          <a href="<%= user_cart_path(current_user, current_user.cart.id)%>">
+            <div>
+              <%= image_tag("cart.svg", :alt => "https://www.flaticon.com/authors/freepik") %>
+              <div class="cart-number-items">
+                <%= current_user.cart.items.length %>
+              </div>
+            </div>
+          </a>
+        </div>
 
 
       <%else%>
