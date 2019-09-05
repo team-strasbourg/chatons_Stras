@@ -16,9 +16,9 @@ As a user, you can :
 ## Warning
 
 Our mailing system works with Sendgrid.
-As Sengrid is limited on sending mails:
-- Don't do a lot of registration (one per corrector is enough)
-- Don't do a lot of carts (one per corrector is enough)
+As Sengrid is limited on sending mails, please do:
+- one registration per corrector.
+- one Stripe paiement per corrector.
 
 Thank you!
 
