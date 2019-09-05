@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'avatars/new'
-  get 'avatars/create'
   devise_for :users, controllers: {
       registrations: 'users/registrations'
   }
