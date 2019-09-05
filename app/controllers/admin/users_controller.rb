@@ -1,5 +1,6 @@
 module Admin
   class UsersController < ApplicationController
+    before_action :only_admin
 
 
     def index
@@ -40,8 +41,14 @@ module Admin
     end
 
     def destroy
-      User.destroy(params[:id])
-      flash[:success] = "User successfully deleted"
+      @user = User.find(params[:id])
+
+      if @user.admin != true
+        @user.destroy
+        flash[:success] = "User successfully deleted"
+      else
+        flash[:error] = "You can't destroy a admin user"
+      end
       redirect_to admin_users_path
     end
 
@@ -50,6 +57,13 @@ module Admin
 
     def user_params
       params[:user].permit(:first_name, :last_name, :description, :admin)
+    end
+
+    def only_admin
+      unless user_signed_in? && current_user.admin == true
+        flash[:danger] = 'You\'re not allowed on this page'
+        redirect_to items_path
+      end
     end
 
 

@@ -2,6 +2,7 @@
 
 module Admin
   class ItemsController < ApplicationController
+    before_action :only_admin
     def index
       @items = Item.all.sort_by(&:id)
     end
@@ -55,6 +56,13 @@ module Admin
 
     def item_params
       params[:item].permit(:title, :description, :price, :image_url, :avatar)
+    end
+
+    def only_admin
+      unless user_signed_in? && current_user.admin == true
+        flash[:danger] = 'You\'re not allowed on this page'
+        redirect_to items_path
+      end
     end
   end
 end

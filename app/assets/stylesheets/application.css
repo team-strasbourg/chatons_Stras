@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+*= require font-awesome
 
 
 *= require assets/styles/bootstrap-4.1.2/bootstrap.min
@@ -22,7 +23,13 @@
 *= require assets/styles/main_styles
 *= require assets/styles/responsive
 
+ *= require font-awesome
+
  */
+
+.menu {
+	background-image: url(assets/ham_menu.jpg); background-size: cover;
+}
 
   body {
    display: flex;
@@ -37,3 +44,19 @@
  #section_footer {
    padding-top: 100px;
  }
+
+
+
+#dropdownMenuButton:focus,
+#dropdownMenuButton:focus:active {
+  outline: none;
+  box-shadow: none;
+}
+
+#price-show:hover{
+    background: none;
+}
+#price-show, #cart-show{
+    border: none;
+}
+

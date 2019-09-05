@@ -1,12 +1,13 @@
 <div class="container mt-cart">
 	<table class="table table-responsive">
 		<thead class="bg-dark text-light">
-				<th style="width:60%">Your order</th>
+				<th style="width:50%">Your order</th>
+        <th style="width:10%">Quantity</th>
 				<th style="width:12%">Price</th> 
 				<th style="width:28%"></th> 
 		</thead>
 		<tbody>
-			<% @order.items.each do |item| %>
+			<% @items.each do |item, quantity| %>
 			<tr>			
 				<td data-th="Your order">
 					<div class="row">
@@ -23,7 +24,8 @@
 						</div>
 					</div>
 				</td>
-				<td data-th="Price"><%= item.price%>€</td>
+        <td><%= quantity %></td>
+        <td data-th="Price"><%= (item.price * quantity *100).round / 100.0%>€</td>
 				<td class="actions" data-th=""> 
 				</td>	
 		  </tr>
@@ -33,8 +35,11 @@
 		<tfoot class="card-footer">
 			<tr>
 				<td data-th="Your order">
-					<%= link_to "Continue shopping", root_path, class: "btn btn-warning" %>
+					<%= link_to "Continue shopping", items_path, class: "btn btn-warning" %>
 				</td>
+        <td>
+          <%=@total_quantity %>
+        </td>
 				<td class="hidden-xs" data-th="Price">
 					<strong>Total: <%= @order.total_price %>€</strong>
 				</td>
