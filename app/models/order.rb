@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Order < ApplicationRecord
   belongs_to :user
   has_many :join_table_order_items
@@ -5,14 +7,14 @@ class Order < ApplicationRecord
 
   def total_price
     # Calculate total price of items in cart
-    self.items.sum(:price)
+    items.sum(:price)
   end
 
   def num_of_items
-    self.items.count
+    items.count
   end
 
   def is_already_paid
-    self.paid
+    paid
   end
 end

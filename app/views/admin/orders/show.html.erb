@@ -1,8 +1,11 @@
-
 <div class="container mt-cart">
   <%= link_to @user.email, admin_user_path(@user), class: 'btn btn-secondary' %>
   <%unless @order.is_already_paid %>
-    <%= link_to 'Destroy',admin_order_path(@order), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+    <%= link_to 'Destroy',
+                admin_order_path(@order),
+                method: :delete,
+                data: { confirm: 'Are you sure?' },
+                class: 'btn btn-danger' %>
   <%end %>
   <table class="table table-responsive">
 		<thead class="bg-dark text-light">
@@ -30,7 +33,6 @@
 		  </tr>
 		  <% end %>
 		</tbody>
-
 		<tfoot class="card-footer">
 			<tr>
 				<td data-th="Your order">
@@ -40,7 +42,6 @@
 					<strong>Total: <%= @order.total_price %>€</strong>
 				</td>
 				<td class="d-flex justify-content-around" data-th="">
-
         </td>
 			</tr>
 		</tfoot>

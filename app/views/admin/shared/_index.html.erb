@@ -24,8 +24,9 @@
         <%if edition %>
           <td><%= link_to 'Edit', "#{path}#{resource.id}/edit" %></td> <!--VARIABLE FROM PARTIAL-->
         <%end %>
-        <td><%= link_to 'Show',"#{path}#{resource.id}" %></td> <!--VARIABLE FROM PARTIAL-->
-        <td><%= link_to 'Destroy',"#{path}#{resource.id}", method: :delete, data: { confirm: 'Are you sure?' } %></td> <!--VARIABLE FROM PARTIAL-->
+        <!--VARIABLE FROM PARTIAL-->
+        <td><%= link_to 'Show',"#{path}#{resource.id}" %></td>
+        <td><%= link_to 'Destroy',"#{path}#{resource.id}", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
     </tbody>

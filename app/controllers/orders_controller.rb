@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class OrdersController < ApplicationController
   before_action :authenticate_user!
   def index
@@ -14,37 +16,27 @@ class OrdersController < ApplicationController
     @total_price = @order.total_price
   end
 
-  def new
-  end
-
   def create
-    unless current_user.cart.items.empty?
+    if current_user.cart.items.empty?
+      redirect_to items_path
+    else
       @order = Order.new(user: current_user)
       if @order.save
         fill_order
         empty_cart
-        flash[:success] = "Order created"
+        flash[:success] = 'Order created'
         redirect_to user_order_path(current_user, @order.id)
       else
-        flash[:error] = "Order failed to be created"
-         redirect_to items_path
+        flash[:error] = 'Order failed to be created'
+        redirect_to items_path
       end
-    else 
-      redirect_to items_path
-     
     end
-  end
-
-  def edit
-  end
-
-  def update
   end
 
   def destroy
     @order = Order.find(params[:id])
     @order.destroy
-    flash[:success] = "Your order has been deleted!"
+    flash[:success] = 'Your order has been deleted!'
     redirect_to items_path
   end
 
@@ -59,5 +51,4 @@ class OrdersController < ApplicationController
   def empty_cart
     JoinTableCartItem.where(cart: current_user.cart).destroy_all
   end
-
 end

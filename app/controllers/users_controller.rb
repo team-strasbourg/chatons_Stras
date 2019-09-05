@@ -1,26 +1,13 @@
 class UsersController < ApplicationController
-
-
   before_action :authenticate_user!
 
-
-  def index
-  end
-
   def show
-      @user = User.friendly.find(params[:id])
+    @user = User.friendly.find(params[:id])
     unless current_user.id == @user.id
-     flash[:error] = "You can't go to other user's profile!!"
-     redirect_to user_path(current_user)
+      flash[:error] = "You can't go to other user's profile!!"
+      redirect_to user_path(current_user)
     end
     @orders = @user.orders
-  end
-
-  def new
-  end
-
-  def create
-
   end
 
   def edit
@@ -35,10 +22,6 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
-
-  def destroy
-  end
-
 
   private
 

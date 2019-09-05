@@ -2,9 +2,8 @@ module Admin
   class UsersController < ApplicationController
     before_action :only_admin
 
-
     def index
-      @users = User.all.sort_by{|user| user.admin ? 0 : 1}
+      @users = User.all.sort_by { |user| user.admin ? 0 : 1 }
     end
 
     def show
@@ -17,7 +16,8 @@ module Admin
     end
 
     def create
-      @user = User.new(email: params[:user][:email], password: params[:user][:password])
+      @user = User.new(email: params[:user][:email],
+                       password: params[:user][:password])
       if @user.save
         Cart.create(user: @user)
         flash[:success]='User created'
@@ -45,7 +45,7 @@ module Admin
 
       if @user.admin != true
         @user.destroy
-        flash[:success] = "User successfully deleted"
+        flash[:success] = 'User successfully deleted'
       else
         flash[:error] = "You can't destroy a admin user"
       end
@@ -65,7 +65,5 @@ module Admin
         redirect_to items_path
       end
     end
-
-
   end
 end
