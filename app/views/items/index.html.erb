@@ -14,20 +14,22 @@
   </ol>
   <div class="carousel-inner">
      <div class="carousel-item active">
-       <div><%= image_tag("banner_1.png", class: "d-block w-100", :alt => "First slide") %></div>
+       <div><%= image_tag("banner_1.jpg", class: "d-block w-100", :alt => "First slide") %></div>
        <div class="carousel-caption d-none d-md-block ">
-		<h1 style=" color: white; text-shadow: 3px 3px 10px black; text-align: center;">Bienvenue sur Little Kitten !</h1> 
-	   <h3>Un site plein de photos trop mignonnes de chatons trop mignons.</h3> 
+		<h1 style=" color: white; text-shadow: 3px 3px 10px black; text-align: center;">Welcome to Little Kitten !</h1> 
+	   <h3>A cute website full of cute pictures of even cuter kitten ! </h3> 
   </div>
   	</div>
     <div class="carousel-item">
-       <div> <%= image_tag("banner_1.png", class: "d-block w-100", :alt => "Second slide") %></div>
-       <div class="carousel-caption d-none d-md-block">
-    <h5>...</h5>
-    <p>...</p>
-  </div>
-    </div>
-  </div>
+       <div> <%= image_tag("banner_2.jpg", class: "d-block w-100", :alt => "Second slide") %></div>
+          <div class="carousel-caption text-left">
+            <h1 style=" color: white; text-shadow: 3px 3px 10px black;">Sign up today !</h1>
+            <h3 style=" color: white; text-shadow: 3px 3px 10px black;">Don't wait any longer ! Sign up now to be able to start filling your cart with your own selection of pictures and procide with your order.   </h3>
+            <br>
+            <button class="btn btn-lg btn-light" role="button"><%= link_to "Sign up", new_user_registration_path %></button>
+          </div>
+        </div>
+      
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
@@ -56,14 +58,16 @@
 					<% @items.each do |item| %>
 					<div class="col-xl-4 col-md-6">
 						<div class="product">
+							
 							<div class="product_image">
+							
                 <%if item.avatar.attached?%>
-                  <%= link_to image_tag(item.avatar, alt: 'Kitty'), item_path(item.id) %>
+                <div style=" top:50%; margin-top:-100px;"> <%= link_to image_tag(item.avatar, alt: 'Kitty'), item_path(item.id) %> </div> 
                 <%else %>
-                  <%= link_to image_tag(item.image_url, :alt => "Kitty"), item_path(item.id) %>
+                <div style=" top:50%; margin-top:-100px;"> <%= link_to image_tag(item.image_url, :alt => "Kitty"), item_path(item.id) %> </div>
                 <%end%>
               </div>
-							<div class="product_content">
+              		<div class="product_content">
 								<div class="product_info d-flex flex-row align-items-start justify-content-start">
 									<div>
 										<div>

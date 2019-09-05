@@ -19,7 +19,7 @@ JoinTableOrderItem.destroy_all
   Item.create(title:Faker::Quote.robin,
               description:Faker::Quote.matz,
               price:Faker::Number.decimal(l_digits: 2),
-              image_url:'item_cat.jpg')
+              image_url: 'item_cat.jpg')
 end
 puts 'Items created'
 5.times do
