@@ -19,8 +19,9 @@ JoinTableOrderItem.destroy_all
   Item.create(title:Faker::Quote.robin,
               description:Faker::Quote.matz,
               price:Faker::Number.decimal(l_digits: 2),
-              image_url:'item_cat.jpg')
+              image_url: 'item_cat.jpg')
 end
+Item.find_each(&:save)
 puts 'Items created'
 5.times do
   User.create(email: Faker::Internet.email,
@@ -29,6 +30,7 @@ puts 'Items created'
               last_name: Faker::Name.last_name,
               description: Faker::Quote.most_interesting_man_in_the_world)
 end
+User.find_each(&:save)
 puts 'Users created'
 
 User.all.each do |user|

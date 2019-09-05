@@ -27,11 +27,11 @@ module Admin
     end
 
     def edit
-      @user = User.find(params[:id])
+      @user = User.friendly.find(params[:id])
     end
 
     def update
-      @user = User.find(params[:id])
+      @user = User.friendly.find(params[:id])
       if @user.update(user_params)
         redirect_to admin_root_path
       else
