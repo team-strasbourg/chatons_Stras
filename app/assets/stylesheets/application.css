@@ -12,4 +12,51 @@
  *
  *= require_tree .
  *= require_self
+*= require font-awesome
+
+
+*= require assets/styles/bootstrap-4.1.2/bootstrap.min
+*= require assets/plugins/font-awesome-4.7.0/css/font-awesome.min
+*= require assets/plugins/OwlCarousel2-2.2.1/owl.carousel
+*= require assets/plugins/OwlCarousel2-2.2.1/owl.theme.default
+*= require assets/plugins/OwlCarousel2-2.2.1/animate
+*= require assets/styles/main_styles
+*= require assets/styles/responsive
+
+ *= require font-awesome
+
  */
+
+.menu {
+	background-image: url(assets/ham_menu.jpg); background-size: cover;
+}
+
+  body {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   min-height: 100vh;
+ }
+
+ footer {
+   margin-top: auto;
+ }
+ #section_footer {
+   padding-top: 100px;
+ }
+
+
+
+#dropdownMenuButton:focus,
+#dropdownMenuButton:focus:active {
+  outline: none;
+  box-shadow: none;
+}
+
+#price-show:hover{
+    background: none;
+}
+#price-show, #cart-show{
+    border: none;
+}
+

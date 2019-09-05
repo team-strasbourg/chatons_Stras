@@ -1,0 +1,79 @@
+<!-- Footer -->
+<%unless is_admin?%>
+	<section id="section_footer">
+		<footer class="footer" >
+			<div class="footer_content" >
+				<div class="container" >
+					<div class="row" style="margin-left: 5px; ">
+						
+						<!-- About -->
+						<div class="col-lg-4 footer_col">
+							<div class="footer_about">
+								<div class="footer_logo" >
+									<a href="#">
+										<div class="d-flex flex-row align-items-center justify-content-start">
+											<div class="footer_logo_icon"><%=image_tag("gitmiaou.png", :alt => "")%></div>
+											<div>Little Kitten</div>
+										</div>
+									</a>		
+								</div>
+								<div class="footer_about_text">
+									<p> P.S. This it totally not the Github cat. They copied us. <br><br>Copyright Little Kitten 2019. </p>
+								</div>
+							</div>
+						</div>
+
+						<!-- Footer Links -->
+						<div class="col-lg-4 footer_col">
+							<div class="footer_menu">
+								<div class="footer_title">Support</div>
+								<ul class="footer_list">
+								
+									<li>
+										<%= link_to "About", about_path %>
+									</li>
+									<li>
+										<%= link_to "Terms & Conditions", use_terms_path, class: "text-black" %>
+									</li>
+									<li>
+										<%= link_to "Contact Us", contact_path,  class: "text-black" %>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+						<!-- Footer Contact -->
+						<div class="col-lg-4 footer_col">
+							
+								<div class="footer_social" style="padding-top: 20px">
+									<div class="footer_title">Social</div>
+									<ul class="footer_social_list d-flex flex-row align-items-start justify-content-start">
+										<li><a href="https://fr-fr.facebook.com/assocera/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+										<li><a href="https://youtu.be/9sxMr4IdXaU"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+										<li><a href="https://www.instagram.com/thecatpet/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="footer_bar">
+				<div class="container">
+					<div class="row">
+						<div class="col">
+							<div class="footer_bar_content d-flex flex-md-row flex-column align-items-center justify-content-start">
+								<div class="copyright order-md-1 order-2"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</footer>
+	</section>
+<%end %>

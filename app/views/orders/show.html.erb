@@ -1,0 +1,59 @@
+<div class="container mt-cart">
+	<table class="table table-responsive">
+		<thead class="bg-dark text-light">
+				<th style="width:50%">Your order</th>
+        <th style="width:10%">Quantity</th>
+				<th style="width:12%">Price</th> 
+				<th style="width:28%"></th> 
+		</thead>
+		<tbody>
+			<% @items.each do |item, quantity| %>
+			<tr>			
+				<td data-th="Your order">
+					<div class="row">
+						<div class="col-md-2">
+							<%if item.avatar_attached?%>
+								<%= link_to image_tag(item.avatar, alt: 'Kitty'), item_path(item) %>
+							<%else %>
+								<%= link_to image_tag(item.image_url, :alt => "Kitty"), item_path(item) %>
+							<%end%>
+						</div>
+						<div class="col-md-10">
+							<h4 class="nomargin"><%= link_to "Item n°#{item.id}", item_path(item) %></h4>
+							<p><%= item.description%></p>
+						</div>
+					</div>
+				</td>
+        <td><%= quantity %></td>
+        <td data-th="Price"><%= (item.price * quantity *100).round / 100.0%>€</td>
+				<td class="actions" data-th=""> 
+				</td>	
+		  </tr>
+		  <% end %>
+		</tbody>
+
+		<tfoot class="card-footer">
+			<tr>
+				<td data-th="Your order">
+					<%= link_to "Continue shopping", items_path, class: "btn btn-warning" %>
+				</td>
+        <td>
+          <%=@total_quantity %>
+        </td>
+				<td class="hidden-xs" data-th="Price">
+					<strong>Total: <%= @order.total_price %>€</strong>
+				</td>
+				<td class="d-flex justify-content-around" data-th="">
+        <%unless @order.is_already_paid %>
+          <div>
+            <%= render partial: 'btn_paiement', locals:{order: @order} %>
+          </div>
+          <div>
+            <%= render 'btn_delete_order' %>
+          </div>
+          <%end %>
+        </td>
+			</tr>
+		</tfoot>
+	</table>
+</div>

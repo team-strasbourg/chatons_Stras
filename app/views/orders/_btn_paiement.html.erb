@@ -1,0 +1,21 @@
+<%if user_signed_in? %>
+
+  <%= form_tag user_order_charges_path(current_user, order) do %>
+    <article>
+      <% if flash[:error].present? %>
+        <div id="error_explanation">
+          <p><%= flash[:error] %></p>
+        </div>
+      <% end %>
+
+    </article>
+
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-description="Your order"
+            data-amount="<%= order.total_price * 100 %>"
+            data-locale="auto"></script>
+  <% end %>
+  <%#= link_to "Paiement", orders_path, method: :post, data: { confirm: "Are you sure?" }, class: "btn btn-success" %>
+
+<%end %>

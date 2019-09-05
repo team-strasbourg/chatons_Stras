@@ -1,0 +1,74 @@
+
+<!-- Menu -->
+
+
+
+
+
+
+<div class="super_container mt-5 pt-5">
+
+	<!-- Header -->
+
+
+
+	<div class="super_container_inner">
+		<div class="super_overlay"></div>
+
+
+
+		<!-- Product -->
+
+		<div class="product">
+			<div class="container">
+				<div class="row">
+
+					<!-- Product Image -->
+					<div class="col-lg-6">
+						<div class="product_image_slider_container">
+							<div id="slider" class="flexslider">
+								<ul class="slides">
+									<li>
+                    <%if @item.avatar.attached?%>
+                      <%= image_tag @item.avatar, alt: 'Kitty picture' %>
+                    <%else %>
+                      <%= image_tag(@item.image_url, :alt => "Kitty picture") %>
+                    <%end%>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<!-- Product Info -->
+					<div class="col-lg-6 product_col">
+						<div class="product_info pl-0 pt-0">
+							<h2><%= @item.title %></h2>
+							</div>
+							<div class="product_text">
+								<p><%= @item.description %></p>
+							</div>
+							<div class="product_buttons mt-5">
+								<div class="text-right d-flex flex-row align-items-start justify-content-start">
+									<div class="product_fav text-center d-flex flex-column align-items-center justify-content-center" id="price-show">
+										<div><div><strong><%= @item.price %> €</strong><div></div></div></div>
+									</div>
+									<div class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center" id="cart-show">
+										    <%= render partial:'button_add_to_cart', locals:{item: @item}  %>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Boxes -->
+
+		<!-- Footer -->
+
+
+	</div>
+
+</div>

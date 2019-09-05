@@ -1,0 +1,100 @@
+
+
+<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+  <h4 class="navbar-brand col-sm-3 col-md-2 mr-0">My profile section</h4>
+</nav>
+
+
+<div class="container">
+  <div class="profile-section">
+    <div class="row">
+      <div class="col-md-3">
+        <h2 class="profile-title"><strong>Your Profile</strong></h2>
+      </div>
+      <div class="col-md-9">
+        <dl>
+          <dt>Email</dt>
+          <dl><%=@user.email %></dl>
+          <dt>First name</dt>
+          <dl><%=@user.first_name %></dl>
+          <dt>Last name</dt>
+          <dl><%=@user.last_name %></dl>
+          <dt>Description</dt>
+          <dl><%=@user.description %></dl>
+          <dt>Admin ?</dt>
+          <dl><%=@user.admin %></dl>
+          <br>
+          <%= link_to "Edit my profile", edit_admin_user_path(@user), class: "btn btn-success"%>
+        </dl>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="profile-section">
+    <div class="row">
+      <div class="col-md-4">
+       <h2 class="profile-title"><strong>Orders to be paid</strong></h2>
+     <!--  <% if @orders.count != nil %> -->
+      </div>
+      <div class="col-md-8">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col" style="width: 20%;">Order number</th>
+              <th scope="col" style="width: 60%;">Created date of order</th>
+              <th scope="col" style="width: 20%;"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @orders.each do |order| %>
+              <% unless order.paid %>
+                <tr>
+                  <th scope="row"><%= order.id %></th>
+                  <td><%= order.created_at %></td>
+                  <td><%= link_to "Consult this order", admin_order_path(order), class: "btn btn-primary"%></td>
+                </tr>
+              <%end%>
+            <% end %>
+          </tbody>
+        </table>
+    <!--   <% else %>
+        <h3>You have no orders still to be paid</h3>
+      <% end %> -->
+      </div>
+    </div>
+  </div>
+
+  <div class="profile-section">
+    <div class="row">
+      <div class="col-md-4">
+        <h2 class="profile-title"><strong>Orders paid</strong></h2>
+      <!--   <% if @orders.count != nil %> -->
+      </div>
+      <div class="col-md-8">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col" style="width: 20%;">Order number</th>
+                <th scope="col" style="width: 60%;">Created date of order</th>
+                <th scope="col" style="width: 20%;"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @orders.each do |order| %>
+                <% if order.paid %>
+                  <tr>
+                    <th scope="row"><%= order.id %></th>
+                    <td><%= order.created_at %></td>
+                    <td><%= link_to "Consult this order", admin_order_path(order), class: "btn btn-primary"%></td>
+                  </tr>
+                <% end %>
+              <% end %>
+            </tbody>
+          </table>
+       <% end %>
+      </div>
+    </div>
+  </div>
+
+</div>

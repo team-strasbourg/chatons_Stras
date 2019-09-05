@@ -1,0 +1,12 @@
+<div >
+  <%if user_signed_in? %>
+    <% path = item_join_table_cart_items_path(item.id)
+       method = 'post'%>
+    <%else %>
+    <% path = new_user_session_path
+       method = 'get'%>
+<%end %>
+    <%=link_to path, method: method, class:"product_button product_fav text-center d-flex align-items-center justify-content-center", remote: true, style:"height:100%" do %>
+      <%= image_tag("cart.svg", :alt => "Cart", style:"height:40%;width:40%") %>
+    <%end %>
+</div>

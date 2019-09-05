@@ -12,8 +12,24 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
+// require turbolinks
 //= require_tree .
 //= require jquery3
 //= require jquery_ujs
 //= require_tree .
+
+//= require assets/js/jquery-3.2.1.min
+//= require assets/styles/bootstrap-4.1.2/popper
+//= require assets/styles/bootstrap-4.1.2/bootstrap.min
+//= require assets/plugins/greensock/TweenMax.min
+//= require assets/plugins/greensock/TimelineMax.min
+//= require assets/plugins/scrollmagic/ScrollMagic.min
+//= require assets/plugins/greensock/animation.gsap.min
+//= require assets/plugins/greensock/ScrollToPlugin.min
+//= require assets/plugins/OwlCarousel2-2.2.1/owl.carousel
+//= require assets/plugins/easing/easing
+//= require assets/plugins/progressbar/progressbar.min
+//= require assets/plugins/parallax-js-master/parallax.min
+//= require assets/js/custom
+
+

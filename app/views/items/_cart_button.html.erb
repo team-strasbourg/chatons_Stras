@@ -1,0 +1,3 @@
+<% if user_signed_in? %>
+  <%= link_to 'Cart', user_cart_path(current_user, cart), class: "btn btn-primary"%>
+<%end%>

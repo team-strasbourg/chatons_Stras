@@ -1,0 +1,128 @@
+
+
+<nav class="navbar navbar-dark bg-dark flex-md-nowrap p-0">
+  <h4 class="navbar-brand col-sm-3 col-md-2 mr-0">My profile section</h4>
+</nav>
+
+
+<div class="container">
+  <div class="profile-section">
+    <div class="row">
+      <div class="col-md-3">
+        <h2 class="profile-title"><strong>Your Profile</strong></h2>
+      </div>
+      <div class="col-md-9">
+        <ul>
+          <div class="row">
+            <div class="col-md-6">
+              <li class="form-group">
+                <label for="exampleFormControlInput1">Your First Name</label>
+                <div class="card">
+                  <div class="card-body">
+                    <%= current_user.first_name %>
+                  </div>
+                </div>
+              </li>
+              <li class="form-group">
+                <label for="exampleFormControlInput1">Your Last Name</label>
+                <div class="card">
+                  <div class="card-body">
+                   <%= current_user.last_name %>
+                  </div>
+                </div>
+              </li>
+              <li class="form-group">
+                <label for="exampleFormControlInput1">Your Email address</label>
+                <div class="card">
+                  <div class="card-body">
+                   <%= current_user.email %>
+                  </div>
+                </div>
+              </li>
+              <li>
+               <%= link_to "Edit my profile", edit_user_path(current_user), class: "btn btn-success"%>
+              </div>
+            </li>
+            <div class="col-md-6">
+              <li class="form-group">
+                <label>Your Description</label>
+                <div class="card">
+                  <div class="card-body">
+                    <%= current_user.description %>
+                  </div>
+                </div>
+              </li>
+            </div>
+          </div>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="profile-section">
+    <div class="row">
+      <div class="col-md-4">
+       <h2 class="profile-title"><strong>Orders to be paid</strong></h2>
+     <!--  <% if @orders.count != nil %> -->
+      </div>
+      <div class="col-md-8">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col" style="width: 20%;">Order number</th>
+              <th scope="col" style="width: 60%;">Created date of order</th>
+              <th scope="col" style="width: 20%;"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @orders.each do |order| %>
+              <% unless order.paid %>
+                <tr>
+                  <th scope="row"><%= order.id %></th>
+                  <td><%= order.created_at %></td>
+                  <td><%= link_to "Go to this order and pay", user_order_path(current_user, order), class: "btn btn-success"%></td>
+                </tr>
+              <%end%>
+            <% end %>
+          </tbody>
+        </table>
+    <!--   <% else %>
+        <h3>You have no orders still to be paid</h3>
+      <% end %> -->
+      </div>
+    </div>
+  </div>
+
+  <div class="profile-section">
+    <div class="row">
+      <div class="col-md-4">
+        <h2 class="profile-title"><strong>Orders paid</strong></h2>
+      <!--   <% if @orders.count != nil %> -->
+      </div>
+      <div class="col-md-8">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col" style="width: 20%;">Order number</th>
+                <th scope="col" style="width: 60%;">Created date of order</th>
+                <th scope="col" style="width: 20%;"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @orders.each do |order| %>
+                <% if order.paid %>
+                  <tr>
+                    <th scope="row"><%= order.id %></th>
+                    <td><%= order.created_at %></td>
+                    <td><%= link_to "Consult this order", user_order_path(current_user, order), class: "btn btn-primary"%></td>
+                  </tr>
+                <% end %>
+              <% end %>
+            </tbody>
+          </table>
+       <!--  <% end %> -->
+      </div>
+    </div>
+  </div>
+
+</div>
