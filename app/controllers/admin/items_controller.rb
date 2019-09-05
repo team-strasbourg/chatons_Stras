@@ -61,7 +61,7 @@ module Admin
     def only_admin
       unless user_signed_in? && current_user.admin == true
         flash[:danger] = 'You\'re not allowed on this page'
-        redirect_to root_path
+        redirect_to items_path
       end
     end
   end
