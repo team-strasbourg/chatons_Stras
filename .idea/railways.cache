@@ -111,6 +111,11 @@ edit_item_join_table_cart_item GET    /items/:item_id/join_table_cart_items/:id/
                                PATCH  /admin/orders/:id(.:format)                                                              admin/orders#update
                                PUT    /admin/orders/:id(.:format)                                                              admin/orders#update
                                DELETE /admin/orders/:id(.:format)                                                              admin/orders#destroy
+                       contact GET    /contact(.:format)                                                                       static_pages#contact
+                         about GET    /about(.:format)                                                                         static_pages#about
+                     use_terms GET    /use_terms(.:format)                                                                     static_pages#terms_of_use
+                       welcome GET    /welcome(.:format)                                                                       static_pages#welcome_page
+                       profile GET    /profile(.:format)                                                                       users#show
             rails_service_blob GET    /rails/active_storage/blobs/:signed_id/*filename(.:format)                               active_storage/blobs#show
      rails_blob_representation GET    /rails/active_storage/representations/:signed_blob_id/:variation_key/*filename(.:format) active_storage/representations#show
             rails_disk_service GET    /rails/active_storage/disk/:encoded_key/*filename(.:format)                              active_storage/disk#show

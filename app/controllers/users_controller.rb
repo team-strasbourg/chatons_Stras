@@ -8,8 +8,7 @@ class UsersController < ApplicationController
   end
 
   def show
-
-    @user = User.friendly.find(params[:id])
+      @user = User.friendly.find(params[:id])
     unless current_user.id == @user.id
      flash[:error] = "You can't go to other user's profile!!"
      redirect_to user_path(current_user)
