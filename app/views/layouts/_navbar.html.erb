@@ -8,26 +8,24 @@
   </nav>
 
 <%else %>
-<div class="menu" style="background-image: url(assets/); background-position: cover;">
+<div class="menu" style="background-image: url(assets/ham_menu.jpg); background-size: cover;">
 
   <!-- Navigation -->
   <div class="menu_nav">
     <ul>
-      <li><%= link_to "All Products", items_path %></li>
+      <li><%= link_to "All Products", items_path, class: "text-white" %></li>
       <br>
-      <li> <%= link_to "About", about_path %></li>
-      <li><%= link_to "Contact Us", contact_path %></li>
-      <li><%= link_to "Terms & Conditions", use_terms_path %></li>
+      <li> <%= link_to "About", about_path,  class: "text-white" %></li>
+      <li><%= link_to "Contact Us", contact_path,  class: "text-white" %></li>
+      <li><%= link_to "Terms & Conditions", use_terms_path, class: "text-white" %></li>
       <br>
-      <li><%= link_to "Log-In", new_user_session_path %></li>
+      <li><%= link_to "Log-In", new_user_session_path,  class: "text-white " %></li>
       <!-- <%= link_to "Sign-Up", new_user_registration_path %> --> </li>
     </ul>
   </div>
   <!-- Contact Info -->
   <div class="menu_contact">
-    <div class="menu_phone d-flex flex-row align-items-center justify-content-start">
-      <div><div><%= image_tag("phone.svg", :alt => "https://www.flaticon.com/authors/freepik") %></div></div>
-      <div>+33 141 592 653 589</div>
+      <div class="text-white">Team#Strasbourg,  +33 141 592 653 589</div>
     </div>
 <!--    <div class="menu_social">
       <ul class="menu_social_list d-flex flex-row align-items-start justify-content-start">
