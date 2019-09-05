@@ -9,16 +9,24 @@ class UserMailer < ApplicationMailer
 
   def deliver_order(user, order)
     @jtoi_array = JoinTableOrderItem.where(order_id:order.id).to_a
-    # Ca sort un array des instances de JoinTableOrderItem associés à cet order 
+
     @images = []
 
-    @jtoi_array.each do |o|
-      @image = o.item.image_url
-      # Je stocke l'URL de l'image dans @image
+    @jtoi_array.each do |o| 
+      if o.item.avatar_attached?
+        @image = o.item.avatar
+      else 
+        @image = o.item.image_url
+      end
+      
       @images << @image
-      # Je mets @image dans l'array @images
-      attachments.inline["#{@image}"] = File.read("app/assets/images/#{@image}")
-      # Cette ligne permet de mettre les images en tant que pièce jointe dans le mail.
+      if o.item.avatar_attached?
+        attachments.inline["#{@image}"]
+      else
+        attachments.inline["#{@image}"] = File.read("app/assets/images/#{@image}")
+      end
+      
+    
     end
     
     @user = user 
