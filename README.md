@@ -13,6 +13,15 @@ As a user, you can :
 
 [https://chatons-stras.herokuapp.com/](https://chatons-stras.herokuapp.com/)
 
+## Warning
+
+Our mailing system works with Sendgrid.
+As Sengrid is limited on sending mails, please do:
+- one registration per corrector.
+- one Stripe paiement per corrector.
+
+Thank you!
+
 ## Motivation
 
 This website was built in week 9 out of a 12 weeks dev bootcamp called "The Hacking Project".
