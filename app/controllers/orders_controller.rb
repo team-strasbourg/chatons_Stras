@@ -45,7 +45,7 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @order.destroy
     flash[:success] = "Your order has been deleted!"
-    redirect_to root_path
+    redirect_to items_path
   end
 
   private
