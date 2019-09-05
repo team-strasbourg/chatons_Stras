@@ -1,11 +1,11 @@
-<div style="height:100%">
+<div >
   <%if user_signed_in? %>
-    <%=link_to item_join_table_cart_items_path(item.id), method: :post, class:"product_button product_fav text-center d-flex align-items-center justify-content-center  " do %>
-      <%= image_tag("cart.svg", :alt => "Cart", style:"height:20%;width:20%") %>
+    <%=link_to item_join_table_cart_items_path(item.id), method: :post, class:"product_button product_fav text-center d-flex align-items-center justify-content-center  ", style:"height:100%" do %>
+      <%= image_tag("cart.svg", :alt => "Cart", style:"height:40%;width:40%") %>
     <%end %>
   <%else%>
-    <%= link_to new_user_session_path, class:"product_button product_fav text-center d-flex align-items-center justify-content-center " do %>
-      <%= image_tag("cart.svg", :alt => "Cart", style:"height:20%;width:20%")%>
+    <%= link_to new_user_session_path, class:"product_button product_fav text-center d-flex align-items-center justify-content-center ", style:"height:100%" do %>
+      <%= image_tag("cart.svg", :alt => "Cart", style:"height:40%;width:40%")%>
     <% end %>
   <%end %>
 </div>
