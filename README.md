@@ -11,7 +11,7 @@ As a user, you can :
 
 ## Link to production Website
 
-[https://chatons-stras-staging.herokuapp.com/](https://chatons-stras-staging.herokuapp.com/)
+[https://chatons-stras.herokuapp.com/](https://chatons-stras.herokuapp.com/)
 
 ## Motivation
 
