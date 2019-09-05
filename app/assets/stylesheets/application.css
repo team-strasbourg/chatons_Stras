@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+*= require font-awesome
 
 
 *= require assets/styles/bootstrap-4.1.2/bootstrap.min
@@ -21,6 +22,8 @@
 *= require assets/plugins/OwlCarousel2-2.2.1/animate
 *= require assets/styles/main_styles
 *= require assets/styles/responsive
+
+ *= require font-awesome
 
  */
 
@@ -48,5 +51,12 @@
 #dropdownMenuButton:focus:active {
   outline: none;
   box-shadow: none;
+}
+
+#price-show:hover{
+    background: none;
+}
+#price-show, #cart-show{
+    border: none;
 }
 

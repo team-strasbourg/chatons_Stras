@@ -1,6 +1,12 @@
 
 <!-- Menu -->
-<div class="super_container">
+
+
+
+
+
+
+<div class="super_container mt-5 pt-5">
 
 	<!-- Header -->
 
@@ -36,19 +42,18 @@
 
 					<!-- Product Info -->
 					<div class="col-lg-6 product_col">
-						<div class="product_info">
-							<br><br><br>
+						<div class="product_info pl-0 pt-0">
 							<h2><%= @item.title %></h2>
 							</div>
 							<div class="product_text">
 								<p><%= @item.description %></p>
 							</div>
-							<div class="product_buttons">
+							<div class="product_buttons mt-5">
 								<div class="text-right d-flex flex-row align-items-start justify-content-start">
-									<div class="product_fav text-center d-flex flex-column align-items-center justify-content-center">
+									<div class="product_fav text-center d-flex flex-column align-items-center justify-content-center" id="price-show">
 										<div><div><strong><%= @item.price %> €</strong><div></div></div></div>
 									</div>
-									<div class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
+									<div class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center" id="cart-show">
 										    <%= render partial:'button_add_to_cart', locals:{item: @item}  %>
 									</div>
 								</div>
