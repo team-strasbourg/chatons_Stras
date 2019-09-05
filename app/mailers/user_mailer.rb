@@ -12,20 +12,20 @@ class UserMailer < ApplicationMailer
   def deliver_order(user, order)
     @jtoi_array = JoinTableOrderItem.where(order_id: order.id).to_a
 
-    @images = []
-
-    @jtoi_array.each do |o|
+    @jtoi_array.each do |o| 
       @image = if o.item.avatar_attached?
-                 o.item.avatar
-               else
-                 o.item.image_url
+        o.item.avatar
+      else 
+        o.item.image_url
                end
-
-      @images << @image
+      
       if o.item.avatar_attached?
-        attachments.inline[@image.to_s]
+        # For images admin put online
+        attachments.inline["#{@image}"] = File.read(@image.blob.service.send(:path_for, @image.key))
+
       else
-        attachments.inline[@image.to_s] = File.read("app/assets/images/#{@image}")
+        # For normal images
+        attachments.inline["#{@image}"] = File.read("app/assets/images/#{@image}")
       end
     end
 
